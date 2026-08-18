@@ -110,7 +110,7 @@ export function HeroSlider() {
         </Container>
       </div>
 
-      <Container className="relative flex items-center justify-between gap-3 py-3">
+      <Container className="relative flex items-center justify-between gap-3 py-3 z-99">
         <div className="flex gap-2">
           <button
             type="button"
