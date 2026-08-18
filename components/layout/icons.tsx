@@ -103,6 +103,49 @@ export function IconGoogle(props: IconProps) {
   );
 }
 
+export function IconShieldCheck(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <path d="M12 3.5 18.5 6v5.8c0 3.3-2.2 6.5-6.5 9.2-4.3-2.7-6.5-5.9-6.5-9.2V6L12 3.5z" />
+      <path d="m9.4 12.2 1.7 1.7 3.5-4.2" />
+    </svg>
+  );
+}
+
+export function IconCarComfort(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <path d="M5 14.5V9.8A2.3 2.3 0 0 1 7.3 7.5h9.4A2.3 2.3 0 0 1 19 9.8v4.7" />
+      <path d="M5 14.5h14v1.5A2 2 0 0 1 17 18H7a2 2 0 0 1-2-2v-1.5z" />
+      <path d="M7.5 10.5h2.5M14 10.5h2.5M8 14.5h8" />
+      <circle cx="8.2" cy="18.5" r="1.3" />
+      <circle cx="15.8" cy="18.5" r="1.3" />
+    </svg>
+  );
+}
+
+export function IconSupport(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <path d="M6.5 18.5V14a5.5 5.5 0 0 1 11 0v4.5" />
+      <path d="M7.5 16.5h9" />
+      <path d="M12 7.2a2.7 2.7 0 1 1 0 5.4 2.7 2.7 0 0 1 0-5.4z" />
+      <path d="M18.5 16.5a3 3 0 0 1-2.4 1.5" />
+      <path d="M5.5 16.5a3 3 0 0 0 2.4 1.5" />
+    </svg>
+  );
+}
+
+export function IconCalendarCheck(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <rect x="3.5" y="5.5" width="17" height="15" rx="2.5" />
+      <path d="M7.5 3.5v4M16.5 3.5v4M3.5 9.5h17" />
+      <path d="m9.2 13.5 1.7 1.7 3.9-4.7" />
+    </svg>
+  );
+}
+
 const socialIconMap: Record<SocialPlatform, ComponentType<IconProps>> = {
   facebook: IconFacebook,
   instagram: IconInstagram,
