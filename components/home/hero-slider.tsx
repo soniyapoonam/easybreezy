@@ -5,7 +5,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Container } from "@/components/ui";
 import { cn } from "@/components/ui/cn";
 import { homeHero } from "@/lib/content/home";
-import { JourneyPlanner } from "./journey-planner";
 import { VisualPanel } from "./visual-panel";
 
 export function HeroSlider() {
@@ -13,18 +12,23 @@ export function HeroSlider() {
   const [index, setIndex] = useState(0);
   const pointerStart = useRef<number | null>(null);
 
-  const goTo = useCallback(
-    (next: number) => {
-      setIndex((current) => {
-        const resolved = ((next % slides.length) + slides.length) % slides.length;
-        return resolved === current ? current : resolved;
-      });
-    },
-    [slides.length],
-  );
+  const goTo = useCallback((next: number) => {
+    setIndex(() => {
+      if (slides.length === 0) return 0;
+      return ((next % slides.length) + slides.length) % slides.length;
+    });
+  }, [slides.length]);
 
   const previous = useCallback(() => goTo(index - 1), [goTo, index]);
   const next = useCallback(() => goTo(index + 1), [goTo, index]);
+
+  useEffect(() => {
+    if (slides.length <= 1) return;
+    const autoplayTimer = window.setInterval(() => {
+      setIndex((current) => (current + 1) % slides.length);
+    }, 5000);
+    return () => window.clearInterval(autoplayTimer);
+  }, [slides.length]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -47,7 +51,7 @@ export function HeroSlider() {
     >
 
       <div
-        className="relative min-h-[28rem] md:min-h-[32rem]"
+        className="relative min-h-[32rem] md:min-h-[38rem] lg:min-h-[42rem]"
         onPointerDown={(event) => {
           pointerStart.current = event.clientX;
         }}
@@ -74,7 +78,7 @@ export function HeroSlider() {
             <VisualPanel
               label={slide.imageAlt}
               tone={slide.tone}
-              className="h-full min-h-[28rem] rounded-none shadow-none md:min-h-[32rem]"
+              className="h-full min-h-[32rem] rounded-none shadow-none md:min-h-[38rem] lg:min-h-[42rem]"
               caption={slideIndex === index ? slide.caption : undefined}
             />
           </div>
@@ -82,8 +86,8 @@ export function HeroSlider() {
 
         <div className="absolute inset-0 bg-linear-to-r from-dark/80 via-dark/45 to-dark/20" />
 
-        <Container className="relative flex min-h-[28rem] flex-col justify-end gap-8 py-10 md:min-h-[32rem] md:justify-center md:py-14 lg:flex-row lg:items-end lg:justify-between lg:pb-16">
-          <div className="max-w-xl text-on-dark">
+        <Container className="relative flex min-h-[32rem] flex-col justify-end py-10 md:min-h-[38rem] md:justify-center md:py-14 lg:min-h-[42rem] lg:pb-16">
+          <div className="max-w-2xl text-on-dark">
             <p className="font-heading text-small font-semibold tracking-[0.16em] text-highlight uppercase">
               {homeHero.eyebrow}
             </p>
@@ -102,10 +106,6 @@ export function HeroSlider() {
                 {homeHero.secondaryCta.label}
               </Link>
             </div>
-          </div>
-
-          <div className="w-full max-w-md shrink-0 lg:mb-0">
-            <JourneyPlanner />
           </div>
         </Container>
       </div>

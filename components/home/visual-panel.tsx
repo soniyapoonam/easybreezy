@@ -17,6 +17,21 @@ const toneClass: Record<VisualTone, string> = {
   forest: "from-dark via-secondary to-primary",
 };
 
+const toneBackgroundImage: Record<VisualTone, string> = {
+  ridge:
+    "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')",
+  dusk:
+    "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')",
+  pass:
+    "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')",
+  lake:
+    "url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80')",
+  temple:
+    "url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80')",
+  forest:
+    "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')",
+};
+
 type VisualPanelProps = {
   label: string;
   tone?: VisualTone;
@@ -42,10 +57,15 @@ export function VisualPanel({
       role="img"
       aria-label={label}
       className={cn(
-        "relative overflow-hidden bg-linear-to-br",
+        "relative overflow-hidden bg-cover bg-center bg-no-repeat",
         toneClass[tone],
         className,
       )}
+      style={{
+        backgroundImage: toneBackgroundImage[tone],
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
       <div
         className="pointer-events-none absolute -right-16 -top-20 size-72 rounded-full bg-highlight/12 blur-2xl"
