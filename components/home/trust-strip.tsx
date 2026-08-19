@@ -17,7 +17,7 @@ const trustIcons = {
 export function TrustStrip() {
   return (
     <Section
-      className=" mt-10 border-b border-border bg-surface py-8 md:py-10"
+      className=" mt-10 border-border bg-surface py-8 md:py-10"
       aria-label="Why travellers choose Easy Breezy Travels"
     >
       <Container>

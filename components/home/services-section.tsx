@@ -5,7 +5,7 @@ import { ServiceCard } from "./service-card";
 
 export function ServicesSection() {
   return (
-    <Section className="bg-sky/40" aria-labelledby="home-services-heading">
+    <Section className=" bg-surface bg-sky/40" aria-labelledby="home-services-heading">
       <Container>
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <SectionHeading
@@ -18,8 +18,8 @@ export function ServicesSection() {
             All services
           </Link>
         </div>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
+        <ul className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          {services.slice(0,4).map((service) => (
             <li key={service.id}>
               <ServiceCard service={service} />
             </li>

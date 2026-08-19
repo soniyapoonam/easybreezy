@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import {
   AboutSection,
-  BlogSection,
   DestinationsSection,
   ExperienceCtaSection,
   FinalCtaSection,
@@ -10,6 +9,7 @@ import {
   ReviewsSection,
   ServicesSection,
   TrustStrip,
+  TourPackagesSection,
   WhyChooseSection,
 } from "@/components/home";
 import { siteConfig } from "@/lib/site";
@@ -40,7 +40,7 @@ export default function HomePage() {
       <DestinationsSection />
       <ExperienceCtaSection />
       <ReviewsSection />
-      <BlogSection />
+      <TourPackagesSection />
       <FinalCtaSection />
     </>
   );

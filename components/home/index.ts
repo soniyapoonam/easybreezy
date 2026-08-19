@@ -10,5 +10,7 @@ export { ReviewsSection } from "./reviews-section";
 export { ServiceCard } from "./service-card";
 export { ServicesSection } from "./services-section";
 export { TrustStrip } from "./trust-strip";
+export { TourPackageCard } from "./tour-package-card";
+export { TourPackagesSection } from "./tour-packages-section";
 export { VisualPanel, type VisualTone } from "./visual-panel";
 export { WhyChooseSection } from "./why-choose-section";

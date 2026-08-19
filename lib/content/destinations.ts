@@ -132,3 +132,103 @@ export const destinations: readonly Destination[] = [
 export const homeDestinations = destinations.filter(
   (destination) => destination.featuredOnHome,
 );
+
+export type TourPackage = Destination & {
+  id: string;
+  title: string;
+  destinationLabel: string;
+  days: number;
+  nights: number;
+  rating: number;
+  reviewCount: number;
+  pricePerDay: number;
+  badge?: string;
+};
+
+const tourPackageDetails = [
+  {
+    id: "package-shimla",
+    destinationSlug: "shimla",
+    title: "Shimla Escape with Local Sightseeing",
+    destinationLabel: "Shimla",
+    days: 3,
+    nights: 2,
+    rating: 5,
+    reviewCount: 2,
+    pricePerDay: 5500,
+    badge: "Featured",
+  },
+  {
+    id: "package-manali",
+    destinationSlug: "manali",
+    title: "Manali Valley Journey",
+    destinationLabel: "Manali",
+    days: 4,
+    nights: 3,
+    rating: 5,
+    reviewCount: 3,
+    pricePerDay: 6500,
+  },
+  {
+    id: "package-dharamshala",
+    destinationSlug: "dharamshala",
+    title: "Dharamshala & McLeod Ganj Retreat",
+    destinationLabel: "Dharamshala",
+    days: 3,
+    nights: 2,
+    rating: 5,
+    reviewCount: 2,
+    pricePerDay: 5200,
+  },
+  {
+    id: "package-manali-atal-tunnel",
+    destinationSlug: "manali",
+    title: "Manali Adventure & Atal Tunnel",
+    destinationLabel: "Manali & Atal Tunnel",
+    days: 5,
+    nights: 4,
+    rating: 5,
+    reviewCount: 4,
+    pricePerDay: 7200,
+    badge: "Popular",
+  },
+  {
+    id: "package-amritsar",
+    destinationSlug: "amritsar",
+    title: "Amritsar Heritage Weekend",
+    destinationLabel: "Amritsar",
+    days: 3,
+    nights: 2,
+    rating: 5,
+    reviewCount: 2,
+    pricePerDay: 4800,
+  },
+  {
+    id: "package-kangra",
+    destinationSlug: "kangra",
+    title: "Kangra Valley & Fort Trail",
+    destinationLabel: "Kangra",
+    days: 2,
+    nights: 1,
+    rating: 5,
+    reviewCount: 1,
+    pricePerDay: 4200,
+  },
+] as const;
+
+export const homeTourPackages: readonly TourPackage[] = tourPackageDetails.map(
+  (packageDetail) => {
+    const destination = destinations.find(
+      (item) => item.slug === packageDetail.destinationSlug,
+    );
+
+    if (!destination) {
+      throw new Error(`Unknown tour package destination: ${packageDetail.destinationSlug}`);
+    }
+
+    return {
+      ...destination,
+      ...packageDetail,
+    };
+  },
+);

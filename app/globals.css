@@ -252,7 +252,7 @@
     gap: var(--space-2);
     min-height: 2.75rem;
     padding: 0.625rem 1.25rem;
-    border-radius: var(--radius-md);
+    border-radius: 9999px;
     font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
     font-size: 0.9375rem;
     font-weight: 600;
@@ -260,7 +260,12 @@
     text-decoration: none;
     border: 1px solid transparent;
     cursor: pointer;
-    transition: var(--transition-colors);
+    transition:
+      color 350ms var(--ease-standard),
+      background-color 350ms var(--ease-standard),
+      border-color 350ms var(--ease-standard),
+      box-shadow 350ms var(--ease-standard),
+      transform 350ms var(--ease-standard);
   }
 
   .btn:disabled,
@@ -279,9 +284,10 @@
   }
 
   .btn-primary:hover:not(:disabled):not([aria-disabled="true"]) {
+    background: var(--color-primary);
     box-shadow: var(--shadow-md);
     transform: translateY(-1px);
-    color: var(--color-on-accent);
+    color: var(--color-on-primary);
   }
 
   .btn-primary:active:not(:disabled):not([aria-disabled="true"]) {
@@ -298,9 +304,9 @@
 
   .btn-secondary:hover:not(:disabled):not([aria-disabled="true"]) {
     background-color: var(--color-secondary);
-    color: var(--color-on-primary);
     box-shadow: var(--shadow-md);
     transform: translateY(-1px);
+    color: var(--color-on-primary);
   }
 
   .btn-secondary:active:not(:disabled):not([aria-disabled="true"]) {
