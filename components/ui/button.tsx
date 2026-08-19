@@ -15,7 +15,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
 };
 
-export function Button({
+export function Button({  
   variant = "primary",
   isLoading = false,
   disabled,

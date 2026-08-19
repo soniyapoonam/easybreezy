@@ -129,7 +129,7 @@ export function ServiceCard({ service }: { service: Service }) {
       ========================================================== */}
 
       <div
-        className="
+        className="  
           relative z-10
           mx-3 mt-3
           overflow-hidden
