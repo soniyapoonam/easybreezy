@@ -7,15 +7,15 @@
 
 :root {
   /* Brand colors */
-  --color-primary: #123b5d;
-  --color-secondary: #1e6fa8;
-  --color-accent: #f47a3c;
-  --color-highlight: #f6b84b;
-  --color-sky: #eaf4f8;
-  --color-background: #f7fafc;
-  --color-dark: #102a43;
-  --color-text: #334e68;
-  --color-muted: #627d98;
+  --color-primary: #0b63b6;
+  --color-secondary: #07549e;
+  --color-accent: #ff382f;
+  --color-highlight: #ff5a52;
+  --color-sky: #eef6ff;
+  --color-background: #f7faff;
+  --color-dark: #102d50;
+  --color-text: #3f4e63;
+  --color-muted: #718096;
   --color-surface: #ffffff;
   --color-border: #d9e2ec;
 
@@ -101,7 +101,7 @@
   --gradient-cta: linear-gradient(
     135deg,
     var(--color-accent) 0%,
-    #e86a2f 100%
+    #ef2924 100%
   );
   --gradient-soft: linear-gradient(
     180deg,

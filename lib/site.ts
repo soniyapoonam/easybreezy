@@ -138,7 +138,7 @@ export const siteConfig = {
   ] as const satisfies readonly PaymentMethodBadge[],
 
   bookingHref: "/booking",
-  bookingCtaLabel: "Online Booking",
+  bookingCtaLabel: "BOOKING NOW",
 
   footer: {
     /**
