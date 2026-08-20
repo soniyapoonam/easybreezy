@@ -4,25 +4,33 @@ import { homeDestinations } from "@/lib/content/destinations";
 import { DestinationCard } from "./destination-card";
 
 export function DestinationsSection() {
+  const destinations = homeDestinations.slice(0, 6);
+
   return (
-    <Section aria-labelledby="home-destinations-heading">
+    <Section
+      aria-labelledby="home-destinations-heading"
+      className="bg-white"
+    >
       <Container>
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <SectionHeading
+           <SectionHeading
             id="home-destinations-heading"
             eyebrow="Popular destinations"
             heading="Places worth arriving to, not merely passing through."
-            description="A curated selection from our Himachal and Punjab routes. The full list lives on the destinations page."
+            description="From quiet hill mornings to vibrant mountain towns, discover the places that make the journey worth taking."
+            className=""
           />
-          <Link href="/destinations" className="btn btn-secondary shrink-0">
-            View all destinations
+          <Link href="/destinations" className="btn btn-outline shrink-0">
+            See more
           </Link>
+          
         </div>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {homeDestinations.slice(0,4).map((destination) => (
-            <li key={destination.slug}>
-              <DestinationCard destination={destination} />
-            </li>
+        <ul className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-6">
+            {destinations.slice(0,6) .map((destination) => (
+            <DestinationCard
+              key={destination.slug}
+              destination={destination}
+            />
           ))}
         </ul>
       </Container>
