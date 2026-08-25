@@ -40,8 +40,8 @@ export default function HomePage() {
       <DestinationsSection />
       <ExperienceCtaSection />
       <ReviewsSection />
-      <TourPackagesSection />
       <FinalCtaSection />
+      <TourPackagesSection />
     </>
   );
 }

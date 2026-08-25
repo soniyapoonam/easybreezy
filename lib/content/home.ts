@@ -135,8 +135,10 @@ export const homeBlog = {
 };
 
 export const homeFinalCta = {
-  heading: "When you are ready, book on a clear next page.",
-  body: "This homepage is for discovering the journey. Online booking has its own focused flow—so nothing important is rushed into a banner.",
+  eyebrow: "Your next escape starts here",
+  heading: "Start planning your trip now.",
+  offer: "Get 30% off your first planned journey",
+  body: "Tell us where you want to go and we will help shape a comfortable route around the places that matter to you.",
   ctaLabel: siteConfig.bookingCtaLabel,
   ctaHref: siteConfig.bookingHref,
 };

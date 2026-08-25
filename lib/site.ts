@@ -48,7 +48,7 @@ export const siteConfig = {
       "Vill Dohra, PO Bharoli Kalan,",
       "Teh Jhandutta",
     ] as const,
-    phone: "94189-20004",
+    phone: "+91-94189-20004",
     phoneHref: "tel:+919418920004",
     email: "soniyapoonam9986@gmail.com",
     emailHref: "mailto:soniyapoonam9986@gmail.com",

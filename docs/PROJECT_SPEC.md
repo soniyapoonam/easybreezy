@@ -821,7 +821,7 @@ Blog pages must support:
 | Field | Value |
 |-------|-------|
 | Address | Vill Dohra, PO Bharoli Kalan, Teh Jhandutta |
-| Phone | 94189-20004 |
+| Phone | +91-94189-20004 |
 | Email | soniyapoonam9986@gmail.com |
 
 ### 20.2 Social platforms

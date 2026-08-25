@@ -62,10 +62,10 @@ export function Header() {
         </div>
       </div>
 
-      <div className="grid min-h-[5.25rem] grid-cols-[minmax(10rem,1fr)_auto] items-center gap-2 lg:grid-cols-[15%_minmax(0,1fr)_auto]">
+      <div className="grid min-h-[5.25rem] grid-cols-[minmax(10rem,1fr)_auto] items-center gap-3 lg:grid-cols-[minmax(15rem,auto)_minmax(0,1fr)_auto] lg:gap-5">
         <Link
           href="/"
-          className="group relative flex h-full min-w-0 items-center gap-2 overflow-hidden bg-surface px-4 no-underline before:absolute before:-right-8 before:top-0 before:h-full before:w-16 before:skew-x-[18deg] before:bg-surface sm:px-8 lg:px-10"
+          className="group relative flex h-full min-w-0 items-center gap-3 bg-surface px-4 no-underline sm:px-8 lg:px-10"
           onClick={() => setOpen(false)}
         >
           <span className="relative inline-flex size-10 shrink-0 items-center justify-center sm:size-12" aria-hidden="true">
@@ -81,14 +81,14 @@ export function Header() {
         </Link>
 
         <nav
-          className="hidden items-center justify-start gap-1 px-3 lg:flex xl:px-8"
+          className="hidden items-center justify-start gap-2 px-3 lg:flex xl:px-6"
           aria-label="Main navigation"
         >
           {siteConfig.mainNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 font-heading text-sm font-semibold text-text no-underline transition-colors hover:bg-sky hover:text-secondary"
+              className="rounded-md px-2 py-2 font-heading text-sm font-semibold text-text no-underline transition-colors hover:bg-sky hover:text-secondary"
             >
               {item.label}
             </Link>
@@ -98,7 +98,7 @@ export function Header() {
         <div className="flex h-full items-stretch justify-end gap-2 sm:gap-4">
           <a
             href={siteConfig.contact.phoneHref}
-            className="hidden items-center gap-2 text-right no-underline md:inline-flex"
+            className="hidden items-center gap-2 text-left no-underline md:inline-flex"
           >
             <span className="inline-flex size-10 items-center justify-center rounded-full bg-sky text-accent shadow-sm">
               <IconPhone className="size-4" />
@@ -108,12 +108,14 @@ export function Header() {
               <span className="mt-1 font-bold text-primary">{siteConfig.contact.phone}</span>
             </span>
           </a>
-          <Link
-            href={siteConfig.bookingHref}
-            className="btn btn-primary !min-h-[5.25rem] !rounded-none border-0 px-7 text-[0.7rem] font-bold tracking-[0.04em] uppercase shadow-none sm:px-10 sm:text-sm"
-          >
-            {siteConfig.bookingCtaLabel}
-          </Link>
+          <div className="header-booking relative isolate flex h-full items-stretch">
+            <Link
+              href={siteConfig.bookingHref}
+              className="header-booking-link btn btn-primary relative z-10 !min-h-[5.25rem] !rounded-none border-0 px-7 text-[0.7rem] font-bold tracking-[0.04em] uppercase shadow-none sm:px-10 sm:text-sm"
+            >
+              {siteConfig.bookingCtaLabel}
+            </Link>
+          </div>
 
           <button
             type="button"

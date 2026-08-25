@@ -262,6 +262,7 @@
     cursor: pointer;
     transition:
       color 350ms var(--ease-standard),
+      background 350ms var(--ease-standard),
       background-color 350ms var(--ease-standard),
       border-color 350ms var(--ease-standard),
       box-shadow 350ms var(--ease-standard),
@@ -293,6 +294,45 @@
   .btn-primary:active:not(:disabled):not([aria-disabled="true"]) {
     transform: translateY(0);
     box-shadow: var(--shadow-sm);
+  }
+
+  .header-booking {
+    transition: transform 350ms var(--ease-standard);
+  }
+
+  .header-booking-link {
+    background: var(--color-accent);
+    transition: background-color 350ms var(--ease-standard),
+      color 350ms var(--ease-standard), transform 350ms var(--ease-standard);
+  }
+
+  .header-booking::before {
+    position: absolute;
+    inset-block: 0;
+    left: -0.75rem;
+    z-index: 999;
+    width: 1.75rem;
+    background: #fff;
+    content: "";
+    pointer-events: none;
+    transform: skewX(-12deg);
+    transition: background 350ms var(--ease-standard);
+  }
+
+  .header-booking:hover,
+  .header-booking:focus-within {
+    transform: translateY(-1px);
+  }
+
+  
+  .header-booking:focus-within::before {
+    background: var(--color-primary);
+  }
+
+  .header-booking-link:hover:not(:disabled):not([aria-disabled="true"]),
+  .header-booking-link:focus-visible {
+    background: var(--color-primary);
+    transform: none;
   }
 
   /* Secondary — navy / travel blue system */
