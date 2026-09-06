@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
-import { Footer, Header } from "@/components/layout";
+import { Footer, Header, PageBanner } from "@/components/layout";
 import "./globals.css";
 
 const inter = Inter({
@@ -30,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col font-body">
         <Header />
+        <PageBanner />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
       </body>

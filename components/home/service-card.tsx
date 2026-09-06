@@ -133,7 +133,6 @@ export function ServiceCard({ service }: { service: Service }) {
           relative z-10
           mx-3 mt-3
           overflow-hidden
-          rounded-[24px]
           sm:mx-3
         "
       >
@@ -155,7 +154,6 @@ export function ServiceCard({ service }: { service: Service }) {
         <div
           className="
             relative overflow-hidden
-            rounded-[24px]
             border border-primary/[0.08]
             bg-primary/[0.025]
             shadow-[inset_0_0_0_1px_rgba(255,255,255,0.5)]

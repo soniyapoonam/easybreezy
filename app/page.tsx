@@ -5,7 +5,6 @@ import {
   ExperienceCtaSection,
   FinalCtaSection,
   HeroSlider,
-  JourneyPlanner,
   ReviewsSection,
   ServicesSection,
   TrustStrip,
@@ -28,11 +27,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSlider />
-      <section className="relative z-20 -mt-8 px-4 md:-mt-10 lg:-mt-12">
-        <div className="mx-auto max-w-[72rem]">
-          <JourneyPlanner />
-        </div>
-      </section>
       <TrustStrip />
       <AboutSection />
       <ServicesSection />

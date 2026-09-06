@@ -37,6 +37,7 @@ type VisualPanelProps = {
   tone?: VisualTone;
   className?: string;
   caption?: string;
+  imageSrc?: string | null;
   /** Stronger vignette for hero / cinematic frames */
   cinematic?: boolean;
 };
@@ -50,6 +51,7 @@ export function VisualPanel({
   tone = "ridge",
   className,
   caption,
+  imageSrc = null,
   cinematic = false,
 }: VisualPanelProps) {
   return (
@@ -60,9 +62,12 @@ export function VisualPanel({
         "relative overflow-hidden bg-cover bg-center bg-no-repeat",
         toneClass[tone],
         className,
+        "rounded-none",
       )}
       style={{
-        backgroundImage: toneBackgroundImage[tone],
+        backgroundImage: imageSrc
+          ? `url('${imageSrc}')`
+          : toneBackgroundImage[tone],
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

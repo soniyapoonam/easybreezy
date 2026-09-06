@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Card } from "@/components/ui";
 import { IconCalendarCheck, IconMapPin } from "@/components/layout/icons";
 import type { TourPackage } from "@/lib/content/destinations";
+import { siteConfig } from "@/lib/site";
 import { VisualPanel } from "./visual-panel";
 
 export function TourPackageCard({
@@ -12,7 +13,7 @@ export function TourPackageCard({
   return (
     <Card
       interactive
-      className="group flex h-full flex-col overflow-hidden rounded-xl border-border/70 p-0"
+      className="group flex h-full flex-col overflow-hidden rounded-none border-border/70 p-0"
     >
       <div className="relative aspect-16/10 overflow-hidden">
         <VisualPanel
@@ -61,7 +62,7 @@ export function TourPackageCard({
             </p>
           </div>
           <Link
-            href={tourPackage.href}
+            href={siteConfig.bookingHref}
             className="btn btn-outline group/book rounded-full border-accent px-3 py-2 text-accent hover:bg-accent hover:text-on-accent motion-safe:transition-transform motion-safe:group-hover/book:translate-x-0.5"
           >
             Book Now

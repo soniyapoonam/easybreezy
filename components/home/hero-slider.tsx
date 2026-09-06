@@ -78,6 +78,7 @@ export function HeroSlider() {
             <VisualPanel
               label={slide.imageAlt}
               tone={slide.tone}
+              imageSrc={slide.imageSrc}
               className="h-full min-h-[32rem] rounded-none shadow-none md:min-h-[38rem] lg:min-h-[42rem]"
               caption={slideIndex === index ? slide.caption : undefined}
             />
@@ -108,46 +109,55 @@ export function HeroSlider() {
             </div>
           </div>
         </Container>
-      </div>
 
-      <Container className="relative flex items-center justify-between gap-3 py-3 z-99">
-        <div className="flex gap-2">
-          <button
-            type="button"
-            className="inline-flex size-10 items-center justify-center rounded-md border border-white/15 bg-white/5 text-on-dark transition-colors hover:bg-white/10"
-            aria-label="Previous slide"
-            onClick={previous}
-          >
-            <span aria-hidden="true">←</span>
-          </button>
-          <button
-            type="button"
-            className="inline-flex size-10 items-center justify-center rounded-md border border-white/15 bg-white/5 text-on-dark transition-colors hover:bg-white/10"
-            aria-label="Next slide"
-            onClick={next}
-          >
-            <span aria-hidden="true">→</span>
-          </button>
+        <div className="pointer-events-none absolute inset-x-0 bottom-5 z-20 md:bottom-7">
+          <Container className="flex items-center justify-between gap-3">
+            <div className="pointer-events-auto flex gap-2">
+              <button
+                type="button"
+                className="inline-flex size-10 items-center justify-center rounded-md border border-white/15 bg-white/5 text-on-dark transition-colors hover:bg-white/10"
+                aria-label="Previous slide"
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={previous}
+              >
+                <span aria-hidden="true">←</span>
+              </button>
+              <button
+                type="button"
+                className="inline-flex size-10 items-center justify-center rounded-md border border-white/15 bg-white/5 text-on-dark transition-colors hover:bg-white/10"
+                aria-label="Next slide"
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={next}
+              >
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+            <div
+              className="pointer-events-auto flex gap-2"
+              role="tablist"
+              aria-label="Slide selection"
+            >
+              {slides.map((slide, slideIndex) => (
+                <button
+                  key={slide.id}
+                  type="button"
+                  role="tab"
+                  aria-label={`Show slide: ${slide.caption}`}
+                  aria-selected={slideIndex === index}
+                  className={cn(
+                    "h-2.5 rounded-full transition-all",
+                    slideIndex === index
+                      ? "w-8 bg-highlight"
+                      : "w-2.5 bg-white/35 hover:bg-white/55",
+                  )}
+                  onPointerDown={(event) => event.stopPropagation()}
+                  onClick={() => goTo(slideIndex)}
+                />
+              ))}
+            </div>
+          </Container>
         </div>
-        <div className="flex gap-2" role="tablist" aria-label="Slide selection">
-          {slides.map((slide, slideIndex) => (
-            <button
-              key={slide.id}
-              type="button"
-              role="tab"
-              aria-label={`Show slide: ${slide.caption}`}
-              aria-selected={slideIndex === index}
-              className={cn(
-                "h-2.5 rounded-full transition-all",
-                slideIndex === index
-                  ? "w-8 bg-highlight"
-                  : "w-2.5 bg-white/35 hover:bg-white/55",
-              )}
-              onClick={() => goTo(slideIndex)}
-            />
-          ))}
-        </div>
-      </Container>
+      </div>
     </section>
   );
 }

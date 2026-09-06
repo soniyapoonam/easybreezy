@@ -10,7 +10,7 @@ export function DestinationCard({
   return (
     <Link
       href={destination.href}
-      className="group relative block h-[250px] overflow-hidden rounded-[10px] no-underline"
+      className="group relative block h-[250px] overflow-hidden no-underline"
     >
       {/* Destination image / visual */}
       <VisualPanel
