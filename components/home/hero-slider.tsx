@@ -80,7 +80,6 @@ export function HeroSlider() {
               tone={slide.tone}
               imageSrc={slide.imageSrc}
               className="h-full min-h-[32rem] rounded-none shadow-none md:min-h-[38rem] lg:min-h-[42rem]"
-              caption={slideIndex === index ? slide.caption : undefined}
             />
           </div>
         ))}

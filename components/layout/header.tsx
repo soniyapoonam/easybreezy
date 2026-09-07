@@ -7,6 +7,7 @@ import { siteConfig } from "@/lib/site";
 import {
   IconClose,
   IconMail,
+  IconMapPin,
   IconMenu,
   IconPhone,
   SocialIcon,
@@ -32,25 +33,25 @@ export function Header() {
   return (
     <header className="relative sticky top-0 z-50 border-b-[3px] border-accent bg-surface shadow-md">
       <div className="bg-primary text-on-primary">
-        <div className="flex min-h-12 items-center justify-between gap-4 px-4 py-2 text-xs sm:px-8 sm:text-sm lg:pl-[15.5%]">
-          <div className="flex min-w-0 items-center gap-4 sm:gap-8">
+        <div className="flex min-h-12 items-center justify-between gap-3 px-4 py-2 text-xs sm:gap-4 sm:px-8 sm:text-sm lg:px-10">
+          <div className="flex min-w-0 items-center gap-3 sm:gap-6">
             <a
-              href={siteConfig.contact.emailHref}
+              href="mailto:info@exampletravel.com"
               className="inline-flex min-w-0 items-center gap-2 text-on-primary/90 no-underline transition-colors hover:text-highlight"
             >
               <IconMail className="size-3.5 shrink-0 text-accent" />
-              <span className="truncate">{siteConfig.contact.email}</span>
+              <span className="truncate">info@exampletravel.com</span>
             </a>
-            <span className="hidden items-center gap-2 text-on-primary/90 md:inline-flex">
-              <span className="size-2.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-              <span>{siteConfig.contact.addressLines.join(" ")}</span>
+            <span className="hidden min-w-0 items-center gap-2 text-on-primary/90 sm:inline-flex">
+              <IconMapPin className="size-3.5 shrink-0 text-accent" />
+              <span className="truncate">123 Travel Street, Shimla, Himachal Pradesh</span>
             </span>
           </div>
-          <div className="flex shrink-0 items-center gap-4 text-on-primary sm:gap-5">
+          <div className="flex shrink-0 items-center gap-1.5 text-on-primary sm:gap-2">
             {siteConfig.social.map((item) => (
               <span
                 key={item.id}
-                className="inline-flex size-4 items-center justify-center opacity-90 transition-colors hover:text-accent"
+                className="inline-flex size-7 items-center justify-center rounded-full border border-white/20 bg-white/10 text-on-primary transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:border-accent hover:bg-accent hover:text-on-accent sm:size-8"
                 role="img"
                 aria-label={item.label}
                 title={item.label}

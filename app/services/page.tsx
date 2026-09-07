@@ -1,17 +1,28 @@
 import type { Metadata } from "next";
-import { Container, Section, SectionHeading } from "@/components/ui";
+import {
+  ServicesCtaSection,
+  ServicesIntroSection,
+  ServicesJourneySection,
+  ServicesShowcaseSection,
+} from "@/components/services";
+import { getServicesForPage } from "@/lib/content/services-page";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `Services | ${siteConfig.name}`,
+  description:
+    "Tour packages, custom trips, corporate taxis, round trips, local taxis, and outstation drives—arranged with clear routes and confirmed pickups from Jhandutta.",
 };
 
 export default function ServicesPage() {
+  const services = getServicesForPage();
+
   return (
-    <Section>
-      <Container>
-        <SectionHeading as="h1" heading="Services" />
-      </Container>
-    </Section>
+    <>
+      <ServicesIntroSection />
+      <ServicesShowcaseSection services={services} />
+      <ServicesJourneySection />
+      <ServicesCtaSection />
+    </>
   );
 }

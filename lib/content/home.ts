@@ -19,9 +19,8 @@ export const homeHero = {
       caption: "Himachal hill roads",
       tone: "ridge" as const,
       imageAlt:
-        "Placeholder for a cinematic hill-road journey through Himachal Pradesh",
-      imageSrc:
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
+        "Hill stations landscape for the Easy Breezy Travels homepage banner",
+      imageSrc: "/img/hill-stations.jpg",
     },
     {
       id: "comfort",
@@ -29,7 +28,7 @@ export const homeHero = {
       tone: "dusk" as const,
       imageAlt: "Placeholder for a comfortable taxi journey at dusk",
       imageSrc:
-        "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80",
+        "/img/hill-road.jpg",
     },
     {
       id: "places",
@@ -38,7 +37,7 @@ export const homeHero = {
       imageAlt:
         "Placeholder for cultural and valley destinations on a planned route",
       imageSrc:
-        "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80",
+        "/img/tourist-place.jpg",
     },
     {
       id: "valley",
@@ -46,7 +45,7 @@ export const homeHero = {
       tone: "lake" as const,
       imageAlt: "Placeholder for a valley road journey at first light",
       imageSrc:
-        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80",
+        "/img/hill-stations.jpg",
     },
   ],
 };
