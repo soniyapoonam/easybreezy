@@ -1,4 +1,3 @@
-import { siteConfig } from "@/lib/site";
 import { services, type Service } from "./services";
 
 /** Presentation-only image map for the Services page (paths served from /public). */
@@ -52,17 +51,30 @@ export const servicesJourney = {
   ],
 } as const;
 
-export const servicesPageCta = {
-  eyebrow: "Start here",
-  heading: "Ready to plan your next journey?",
-  body:
-    "Share your route and dates. We will help shape a comfortable plan—then you can complete booking on our dedicated page.",
-  primaryLabel: siteConfig.bookingCtaLabel,
-  primaryHref: siteConfig.bookingHref,
-  secondaryLabel: "Explore destinations",
-  secondaryHref: "/destinations",
-  imageSrc: "/img/hill-road.jpg",
-  imageAlt: "Open hill road for a planned outstation journey",
+export const servicesTogetherSection = {
+  eyebrow: "How it fits together",
+  heading: "More than just a service.",
+  description:
+    "Most journeys ask for more than one arrangement. A tour package, a local pickup, an outstation drive, or a return leg—each can be planned so the whole trip still feels organised, not stitched together at the last minute.",
+  flow: [
+    {
+      id: "plan",
+      label: "Plan",
+      text: "Share your places, dates, and the pace you need for each day.",
+    },
+    {
+      id: "connect",
+      label: "Connect",
+      text: "We align tours, transfers, and taxis into one clear route.",
+    },
+    {
+      id: "experience",
+      label: "Experience",
+      text: "Travel knowing each leg was arranged with the next in mind.",
+    },
+  ],
+  imageSrc: "/img/tour-taxi.jpg",
+  imageAlt: "Travel services arranged together for a comfortable hill journey",
 } as const;
 
 export type ServiceWithImage = Service & { imageSrc: string };

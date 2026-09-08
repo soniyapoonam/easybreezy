@@ -27,7 +27,7 @@
   /* Typography scale (responsive via clamp) */
   --text-h1: clamp(2rem, 1.6rem + 2vw, 3rem); /* 32 → 48px */
   --text-h2: clamp(1.75rem, 1.45rem + 1.5vw, 2.5rem); /* 28 → 40px */
-  --text-h3: clamp(1.375rem, 1.2rem + 0.875vw, 1.75rem); /* 22 → 28px */
+  --text-h3: 1.25rem; /* 20px — fixed across breakpoints */
   --text-h4: clamp(1.125rem, 1.05rem + 0.375vw, 1.375rem); /* 18 → 22px */
   --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); /* 16 → 18px */
   --text-small: 0.875rem; /* 14px */
@@ -198,7 +198,7 @@
   }
 
   h3 {
-    font-size: var(--text-h3);
+    font-size: 1.25rem !important;
     line-height: var(--leading-snug);
   }
 

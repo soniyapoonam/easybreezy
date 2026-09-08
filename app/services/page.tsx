@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import {
-  ServicesCtaSection,
+  ServicesTogetherSection,
   ServicesIntroSection,
   ServicesJourneySection,
   ServicesShowcaseSection,
@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <ServicesIntroSection />
       <ServicesShowcaseSection services={services} />
       <ServicesJourneySection />
-      <ServicesCtaSection />
+      <ServicesTogetherSection />
     </>
   );
 }
