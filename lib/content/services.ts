@@ -4,6 +4,8 @@
  * Later: WordPress / CMS can replace this module without changing card UI.
  */
 
+import { unsplashImages } from "./unsplash";
+
 export type Service = {
   id: string;
   slug: string;
@@ -24,9 +26,9 @@ export const services: readonly Service[] = [
     href: "/services#tour-package",
     summary:
       "Thoughtfully paced hill and heritage itineraries, shaped around your dates rather than a rushed checklist.",
-    imageAlt: "Placeholder for a tour package journey through the hills",
+    imageAlt: "Scenic hill road on a guided tour route",
     tone: "ridge",
-    imageSrc: null,
+    imageSrc: unsplashImages.services.tourPackage,
   },
   {
     id: "custom-trip",
@@ -35,9 +37,9 @@ export const services: readonly Service[] = [
     href: "/services#custom-trip",
     summary:
       "Tell us the places that matter. We connect them into a route that still leaves room to look out the window.",
-    imageAlt: "Placeholder for a custom trip planned around personal stops",
+    imageAlt: "Traveller enjoying a scenic custom journey",
     tone: "dusk",
-    imageSrc: null,
+    imageSrc: unsplashImages.services.customTrip,
   },
   {
     id: "corporate-taxi",
@@ -46,9 +48,9 @@ export const services: readonly Service[] = [
     href: "/services#corporate-taxi",
     summary:
       "Punctual, discreet transfers for meetings, airport runs, and visiting teams who need the day to stay on schedule.",
-    imageAlt: "Placeholder for a professional corporate taxi transfer",
+    imageAlt: "Professional car ready for a corporate transfer",
     tone: "pass",
-    imageSrc: null,
+    imageSrc: unsplashImages.services.corporateTaxi,
   },
   {
     id: "round-trip",
@@ -57,9 +59,9 @@ export const services: readonly Service[] = [
     href: "/services#round-trip",
     summary:
       "Out and back with the same trusted vehicle—ideal for day visits, family functions, and return-the-same-evening plans.",
-    imageAlt: "Placeholder for a round-trip taxi journey",
+    imageAlt: "Highway stretching toward a distant horizon",
     tone: "lake",
-    imageSrc: null,
+    imageSrc: unsplashImages.services.roundTrip,
   },
   {
     id: "local-taxi",
@@ -68,9 +70,9 @@ export const services: readonly Service[] = [
     href: "/services#local-taxi",
     summary:
       "Nearby errands, station pickups, and short hops when you want a familiar driver rather than an uncertain wait.",
-    imageAlt: "Placeholder for a local taxi in town",
+    imageAlt: "Taxi on a city street at golden hour",
     tone: "forest",
-    imageSrc: null,
+    imageSrc: unsplashImages.services.localTaxi,
   },
   {
     id: "outstation-taxi",
@@ -78,9 +80,9 @@ export const services: readonly Service[] = [
     title: "Outstation Taxi",
     href: "/services#outstation-taxi",
     summary:
-      "Longer intercity drives across Himachal and neighbouring states, planned for comfort on hill and highway stretches.",
-    imageAlt: "Placeholder for an outstation taxi on an open road",
+      "Longer intercity drives across regional and highway stretches, planned for comfort on longer travel days.",
+    imageAlt: "Open highway on a long outstation drive",
     tone: "temple",
-    imageSrc: null,
+    imageSrc: unsplashImages.services.outstationTaxi,
   },
 ];

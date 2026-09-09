@@ -4,6 +4,8 @@
  * Later: WordPress can supply title, copy, media, and highlights.
  */
 
+import { unsplashImages } from "./unsplash";
+
 export type Destination = {
   slug: string;
   name: string;
@@ -24,9 +26,9 @@ export const destinations: readonly Destination[] = [
     region: "Himachal Pradesh",
     summary: "Ridge walks, cedar air, and a hill capital that rewards an unhurried arrival.",
     featuredOnHome: true,
-    imageAlt: "Placeholder for Shimla hill-station scenery",
+    imageAlt: "Snow-capped mountains above a hill-station town",
     tone: "ridge",
-    imageSrc: null,
+    imageSrc: unsplashImages.destinations.shimla,
   },
   {
     slug: "manali",
@@ -35,9 +37,9 @@ export const destinations: readonly Destination[] = [
     region: "Himachal Pradesh",
     summary: "Beas valley light, orchard country, and the gateway toward high-pass roads.",
     featuredOnHome: true,
-    imageAlt: "Placeholder for Manali valley scenery",
+    imageAlt: "Valley peaks and alpine scenery near Manali",
     tone: "forest",
-    imageSrc: null,
+    imageSrc: unsplashImages.destinations.manali,
   },
   {
     slug: "atal-tunnel",
@@ -46,9 +48,9 @@ export const destinations: readonly Destination[] = [
     region: "Himachal Pradesh",
     summary: "A remarkable mountain crossing—best experienced as part of a planned Rohtang-side day.",
     featuredOnHome: false,
-    imageAlt: "Placeholder for the Atal Tunnel mountain approach",
+    imageAlt: "Mountain road winding through high peaks",
     tone: "pass",
-    imageSrc: null,
+    imageSrc: unsplashImages.destinations.atalTunnel,
   },
   {
     slug: "manikaran",
@@ -57,9 +59,9 @@ export const destinations: readonly Destination[] = [
     region: "Himachal Pradesh",
     summary: "Hot springs and a riverside pilgrimage town in the Parvati valley.",
     featuredOnHome: true,
-    imageAlt: "Placeholder for Manikaran riverside town",
+    imageAlt: "River flowing through a valley town",
     tone: "dusk",
-    imageSrc: null,
+    imageSrc: unsplashImages.destinations.manikaran,
   },
   {
     slug: "dharamshala",
@@ -68,9 +70,9 @@ export const destinations: readonly Destination[] = [
     region: "Himachal Pradesh",
     summary: "Dhauladhar views, monasteries, and a quieter hill pace above Kangra.",
     featuredOnHome: true,
-    imageAlt: "Placeholder for Dharamshala hillside views",
+    imageAlt: "Hillside town with mountain backdrop",
     tone: "ridge",
-    imageSrc: null,
+    imageSrc: unsplashImages.destinations.dharamshala,
   },
   {
     slug: "amritsar",
@@ -79,9 +81,9 @@ export const destinations: readonly Destination[] = [
     region: "Punjab",
     summary: "Golden Temple evenings, old-city lanes, and a cultural pause on many northbound routes.",
     featuredOnHome: true,
-    imageAlt: "Placeholder for Amritsar heritage atmosphere",
+    imageAlt: "Historic golden temple at dusk",
     tone: "temple",
-    imageSrc: null,
+    imageSrc: unsplashImages.destinations.amritsar,
   },
   {
     slug: "sukhna-lake",
@@ -90,9 +92,9 @@ export const destinations: readonly Destination[] = [
     region: "Chandigarh",
     summary: "A still-water promenade—often a gentle start or close to a longer road trip.",
     featuredOnHome: false,
-    imageAlt: "Placeholder for Sukhna Lake",
+    imageAlt: "Decorative fountain with flowing water",
     tone: "lake",
-    imageSrc: null,
+    imageSrc: unsplashImages.destinations.sukhnaLake,
   },
   {
     slug: "rock-garden",
@@ -101,9 +103,9 @@ export const destinations: readonly Destination[] = [
     region: "Chandigarh",
     summary: "Nek Chand’s sculpted world—worth a dedicated stop when the itinerary allows time.",
     featuredOnHome: false,
-    imageAlt: "Placeholder for Chandigarh Rock Garden",
+    imageAlt: "Sculpted garden paths and greenery",
     tone: "forest",
-    imageSrc: null,
+    imageSrc: unsplashImages.destinations.rockGarden,
   },
   {
     slug: "rose-garden",
@@ -112,9 +114,9 @@ export const destinations: readonly Destination[] = [
     region: "Chandigarh",
     summary: "Seasonal colour in the city—best paired with a calm Chandigarh half-day.",
     featuredOnHome: false,
-    imageAlt: "Placeholder for Zakir Hussain Rose Garden",
+    imageAlt: "Rows of roses in a formal garden",
     tone: "dusk",
-    imageSrc: null,
+    imageSrc: unsplashImages.destinations.roseGarden,
   },
   {
     slug: "kangra",
@@ -123,9 +125,9 @@ export const destinations: readonly Destination[] = [
     region: "Himachal Pradesh",
     summary: "Fort views, tea country, and a valley that sits naturally on Dharamshala routes.",
     featuredOnHome: true,
-    imageAlt: "Placeholder for Kangra valley",
+    imageAlt: "Green valley stretching toward distant hills",
     tone: "pass",
-    imageSrc: null,
+    imageSrc: unsplashImages.destinations.kangra,
   },
 ];
 

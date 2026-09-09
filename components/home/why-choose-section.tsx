@@ -17,6 +17,7 @@ export function WhyChooseSection() {
             <VisualPanel
               label={homeWhyChoose.visualAlt}
               tone={homeWhyChoose.tone}
+              imageSrc={homeWhyChoose.imageSrc}
               className="mt-8 hidden min-h-64 lg:block"
             />
           </div>

@@ -172,6 +172,7 @@ export function ServiceCard({ service }: { service: Service }) {
             <VisualPanel
               label={service.imageAlt}
               tone={service.tone}
+              imageSrc={service.imageSrc}
               className="
                 aspect-16/10
                 rounded-none

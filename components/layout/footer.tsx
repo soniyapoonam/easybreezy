@@ -12,14 +12,6 @@ const FOOTER_BORDER = "rgba(241,231,216,0.12)";
 const FOOTER_TEXT = "rgba(241,231,216,0.72)";
 const FOOTER_TEXT_MUTED = "rgba(241,231,216,0.52)";
 
-const footerContact = {
-  addressLines: ["123 Travel Street,", "Shimla, Himachal Pradesh"],
-  email: "info@exampletravel.com",
-  emailHref: "mailto:info@exampletravel.com",
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
-} as const;
-
 const exploreLinks = [
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
@@ -167,7 +159,7 @@ function BrandLogo() {
           className="block font-heading text-base font-bold tracking-[0.03em] transition-colors duration-300 group-hover:text-[#B8935A] sm:text-lg"
           style={{ color: FOOTER_ACCENT }}
         >
-          Easy Breezy Travels
+          {siteConfig.name}
         </span>
         <span
           className="mt-1 block font-heading text-[0.65rem] font-semibold tracking-[0.2em] uppercase sm:text-[0.7rem]"
@@ -330,7 +322,7 @@ export function Footer() {
               style={{ color: FOOTER_TEXT }}
             >
               Comfortable journeys, trusted drivers, and thoughtfully planned
-              travel across Himachal and beyond—where{" "}
+              travel for every route ahead—where{" "}
               <strong
                 className="font-semibold"
                 style={{ color: "rgba(241,231,216,0.95)" }}
@@ -367,28 +359,28 @@ export function Footer() {
             <FooterHeading>Branch</FooterHeading>
             <div className="mt-5 space-y-4 text-[0.9375rem] leading-relaxed">
               <p style={{ color: FOOTER_TEXT }}>
-                {footerContact.addressLines.map((line) => (
+                {siteConfig.contact.addressLines.map((line) => (
                   <span key={line} className="block">{line}</span>
                 ))}
               </p>
               <a
-                href={footerContact.phoneHref}
+                href={siteConfig.contact.phoneHref}
                 className="inline-flex items-center gap-2.5 no-underline transition-colors duration-300 hover:text-[#B8935A]"
                 style={{ color: FOOTER_TEXT }}
               >
                 <IconPhone className="size-4 shrink-0" style={{ color: FOOTER_ACCENT }} />
                 <span className="border-b border-transparent transition-[border-color,color] duration-300 hover:border-[#B8935A]">
-                  {footerContact.phone}
+                  {siteConfig.contact.phone}
                 </span>
               </a>
               <a
-                href={footerContact.emailHref}
+                href={siteConfig.contact.emailHref}
                 className="block break-all no-underline transition-colors duration-300 hover:text-[#B8935A]"
                 style={{ color: FOOTER_TEXT }}
               >
                 <span className="inline-flex items-center gap-2.5">
                   <IconMail className="size-4 shrink-0" style={{ color: FOOTER_ACCENT }} />
-                  {footerContact.email}
+                  {siteConfig.contact.email}
                 </span>
               </a>
             </div>

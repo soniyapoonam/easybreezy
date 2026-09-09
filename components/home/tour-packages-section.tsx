@@ -15,7 +15,7 @@ export function TourPackagesSection() {
             id="home-tour-packages-heading"
             eyebrow="Tour packages"
             heading="Explore journeys worth taking."
-            description="Discover thoughtfully planned journeys across Himachal and beyond."
+            description="Discover thoughtfully planned journeys across regional and outstation routes."
           />
           <Link href="/destinations" className="btn btn-outline shrink-0">
             Explore destinations

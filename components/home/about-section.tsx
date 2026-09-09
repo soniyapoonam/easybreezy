@@ -22,6 +22,7 @@ export function AboutSection() {
           <VisualPanel
             label={homeAbout.imageAlt}
             tone={homeAbout.tone}
+            imageSrc={homeAbout.imageSrc}
             className="min-h-72 md:min-h-96"
           />
         </div>

@@ -36,15 +36,17 @@ export function Header() {
         <div className="flex min-h-12 items-center justify-between gap-3 px-4 py-2 text-xs sm:gap-4 sm:px-8 sm:text-sm lg:px-10">
           <div className="flex min-w-0 items-center gap-3 sm:gap-6">
             <a
-              href="mailto:info@exampletravel.com"
+              href={siteConfig.contact.emailHref}
               className="inline-flex min-w-0 items-center gap-2 text-on-primary/90 no-underline transition-colors hover:text-highlight"
             >
               <IconMail className="size-3.5 shrink-0 text-accent" />
-              <span className="truncate">info@exampletravel.com</span>
+              <span className="truncate">{siteConfig.contact.email}</span>
             </a>
             <span className="hidden min-w-0 items-center gap-2 text-on-primary/90 sm:inline-flex">
               <IconMapPin className="size-3.5 shrink-0 text-accent" />
-              <span className="truncate">123 Travel Street, Shimla, Himachal Pradesh</span>
+              <span className="truncate">
+                {siteConfig.contact.addressLines.join(" ")}
+              </span>
             </span>
           </div>
           <div className="flex shrink-0 items-center gap-1.5 text-on-primary sm:gap-2">
@@ -76,7 +78,7 @@ export function Header() {
           </span>
           <span className="relative min-w-0 whitespace-nowrap">
             <span className="block font-heading text-[0.72rem] font-extrabold tracking-[0.02em] text-primary transition-colors group-hover:text-secondary sm:text-sm lg:text-base">
-              EASY BREEZY TRAVELS
+              EASY TRAVELS
             </span>
           </span>
         </Link>

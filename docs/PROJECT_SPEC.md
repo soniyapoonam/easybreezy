@@ -1,7 +1,7 @@
-# Easy Breezy Travels — Master Engineering Specification
+# Easy Travels — Master Engineering Specification
 
 **Status:** Source of truth for all future development  
-**Brand:** Easy Breezy Travels  
+**Brand:** Easy Travels  
 **Project type:** Premium travel and taxi booking website  
 **Last updated:** 2026-08-14 (Complete Home Page UX, content architecture, and design specification)
 
@@ -13,7 +13,7 @@ This document is the single source of truth for architecture, design, product sc
 
 ### 1.1 Purpose
 
-Easy Breezy Travels is a premium travel and taxi booking website. The experience must feel trustworthy, polished, and conversion-focused—attracting attention without looking cheap, cluttered, or like a generic AI-generated template.
+Easy Travels is a premium travel and taxi booking website. The experience must feel trustworthy, polished, and conversion-focused—attracting attention without looking cheap, cluttered, or like a generic AI-generated template.
 
 ### 1.2 Technology stack
 
@@ -183,7 +183,7 @@ The header is a **reusable** site-wide component.
 
 ### 7.1 Must include
 
-- Easy Breezy Travels branding / logo area
+- Easy Travels branding / logo area
 - Main navigation
 - **Online Booking** CTA button (visually prominent, not excessive)
 - Responsive mobile navigation
@@ -231,7 +231,7 @@ Guide visitors naturally through:
 1. Global Header *(site chrome — implemented)*
 2. Premium Hero
 3. Trust / Quick Benefits
-4. About Easy Breezy Travels
+4. About Easy Travels
 5. Services
 6. Why Choose Us
 7. Popular Destinations
@@ -251,7 +251,7 @@ All primary content width uses the single container system: `Container` / `.cont
 
 ### 8.4 Premium Hero
 
-The Hero is the most important visual area. It must communicate the Easy Breezy Travels value proposition within the first few seconds: this is a travel and taxi service; customers can plan and book journeys; travel is comfortable and reliable.
+The Hero is the most important visual area. It must communicate the Easy Travels value proposition within the first few seconds: this is a travel and taxi service; customers can plan and book journeys; travel is comfortable and reliable.
 
 #### Slider
 
@@ -309,7 +309,7 @@ Use a refined, compact visual treatment. Do **not** create a large repetitive ic
 
 ---
 
-### 8.6 About Easy Breezy Travels (homepage preview)
+### 8.6 About Easy Travels (homepage preview)
 
 A concise, attractive brand preview:
 
@@ -480,7 +480,7 @@ Homepage copy must be:
 - Useful to travelers
 - SEO-friendly without keyword stuffing
 
-Do not copy competitors. Do not use generic filler. AI-drafted copy must be reviewed and customized for Easy Breezy Travels before publication.
+Do not copy competitors. Do not use generic filler. AI-drafted copy must be reviewed and customized for Easy Travels before publication.
 
 ---
 
@@ -574,7 +574,7 @@ Mobile is intentionally designed — not a compressed desktop layout. **No horiz
 
 ### 8.22 SEO
 
-- Document title and meta description for Easy Breezy Travels (Home-specific when implemented)
+- Document title and meta description for Easy Travels (Home-specific when implemented)
 - Open Graph metadata
 - One primary H1; logical H2/H3 hierarchy
 - Descriptive links (avoid “click here”)
@@ -608,7 +608,7 @@ Every section must earn its place.
 Page structure:
 
 1. Hero
-2. About Easy Breezy Travels
+2. About Easy Travels
 3. Mission
 4. Vision
 5. Trust / value section
@@ -820,9 +820,9 @@ Blog pages must support:
 
 | Field | Value |
 |-------|-------|
-| Address | Vill Dohra, PO Bharoli Kalan, Teh Jhandutta |
-| Phone | +91-94189-20004 |
-| Email | soniyapoonam9986@gmail.com |
+| Address | 123 Travel Avenue, City Center |
+| Phone | +91 90000 00000 |
+| Email | hello@easytravels.example |
 
 ### 20.2 Social platforms
 
@@ -849,7 +849,7 @@ The footer is a **reusable** site-wide component and the brand’s final visual 
 
 2. **Main footer** *(active starting zone)*  
    Sophisticated multi-column layout (not a generic equal four-column dump). Include:
-   - Easy Breezy Travels brand + concise brand description
+   - Easy Travels brand + concise brand description
    - **Company** — exactly **4** curated links
    - **Services** — exactly **4** curated links
    - **Popular destinations** — exactly **4** curated links
@@ -858,9 +858,9 @@ The footer is a **reusable** site-wide component and the brand’s final visual 
 
 3. **Contact / trust area**  
    Visually prominent contact block with clean consistent icons (data from `siteConfig.contact`):
-   - Address: Vill Dohra, PO Bharoli Kalan, Teh Jhandutta
-   - Phone: 94189-20004
-   - Email: soniyapoonam9986@gmail.com
+   - Address: 123 Travel Avenue, City Center
+   - Phone: +91 90000 00000
+   - Email: hello@easytravels.example
 
 4. **Social area**  
    Visual social buttons/icons for Facebook, Instagram, YouTube, Threads, Google.  
@@ -901,7 +901,7 @@ Content must be:
 - Do not copy content from other travel websites.
 - Do not knowingly reproduce copyrighted website copy.
 - Avoid generic filler (e.g. “Welcome to our amazing website…”) unless rewritten into meaningful brand-specific content.
-- AI may assist with drafting; generated content must be reviewed and customized for Easy Breezy Travels.
+- AI may assist with drafting; generated content must be reviewed and customized for Easy Travels.
 
 ---
 

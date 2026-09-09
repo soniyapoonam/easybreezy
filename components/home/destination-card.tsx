@@ -16,6 +16,7 @@ export function DestinationCard({
       <VisualPanel
         label={destination.imageAlt}
         tone={destination.tone}
+        imageSrc={destination.imageSrc}
         className="absolute inset-0 h-full w-full rounded-none shadow-none transition-transform duration-700 ease-out motion-safe:group-hover:scale-110"
       />
 

@@ -8,8 +8,9 @@ export function ExperienceCtaSection() {
     <Section className="py-0" aria-labelledby="home-experience-heading">
       <div className="relative overflow-hidden bg-dark">
         <VisualPanel
-          label="Placeholder for a planned travel route through hills and valleys"
+          label={homeExperienceCta.imageAlt}
           tone="dusk"
+          imageSrc={homeExperienceCta.imageSrc}
           className="absolute inset-0 min-h-full rounded-none opacity-40 shadow-none"
         />
         <div className="absolute inset-0 bg-linear-to-r from-dark/95 via-dark/85 to-dark/70" />

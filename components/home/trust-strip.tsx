@@ -18,7 +18,7 @@ export function TrustStrip() {
   return (
     <Section
       className="border-border bg-surface py-8 md:py-10"
-      aria-label="Why travellers choose Easy Breezy Travels"
+      aria-label="Why travellers choose Easy Travels"
     >
       <Container>
         <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">

@@ -1,4 +1,5 @@
 import { cn } from "@/components/ui/cn";
+import { unsplashImages } from "@/lib/content/unsplash";
 
 export type VisualTone =
   | "ridge"
@@ -18,18 +19,12 @@ const toneClass: Record<VisualTone, string> = {
 };
 
 const toneBackgroundImage: Record<VisualTone, string> = {
-  ridge:
-    "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')",
-  dusk:
-    "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')",
-  pass:
-    "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')",
-  lake:
-    "url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80')",
-  temple:
-    "url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80')",
-  forest:
-    "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')",
+  ridge: `url('${unsplashImages.tones.ridge}')`,
+  dusk: `url('${unsplashImages.tones.dusk}')`,
+  pass: `url('${unsplashImages.tones.pass}')`,
+  lake: `url('${unsplashImages.tones.lake}')`,
+  temple: `url('${unsplashImages.tones.temple}')`,
+  forest: `url('${unsplashImages.tones.forest}')`,
 };
 
 type VisualPanelProps = {
@@ -43,8 +38,8 @@ type VisualPanelProps = {
 };
 
 /**
- * Photography-ready frame. When imageSrc is supplied later, swap the
- * inner gradient for next/image without changing section layout.
+ * Photography frame. Renders a real <img> when imageSrc is set so Unsplash
+ * URLs load reliably in the browser (CSS background alone can fail silently).
  */
 export function VisualPanel({
   label,
@@ -56,22 +51,32 @@ export function VisualPanel({
 }: VisualPanelProps) {
   return (
     <div
-      role="img"
-      aria-label={label}
       className={cn(
         "relative overflow-hidden bg-cover bg-center bg-no-repeat",
-        toneClass[tone],
+        !imageSrc && toneClass[tone],
         className,
         "rounded-none",
       )}
-      style={{
-        backgroundImage: imageSrc
-          ? `url('${imageSrc}')`
-          : toneBackgroundImage[tone],
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      style={
+        imageSrc
+          ? undefined
+          : {
+              backgroundImage: toneBackgroundImage[tone],
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }
+      }
     >
+      {imageSrc ? (
+        <img
+          src={imageSrc}
+          alt={label}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : null}
+
       <div
         className="pointer-events-none absolute -right-16 -top-20 size-72 rounded-full bg-highlight/12 blur-2xl"
         aria-hidden="true"

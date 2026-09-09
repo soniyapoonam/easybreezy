@@ -1,5 +1,5 @@
 /**
- * Central site configuration for Easy Breezy Travels.
+ * Central site configuration for Easy Travels.
  * CONTENT/DATA lives here. Layout components should render this data —
  * do not scatter hard-coded navigation, contact, or link lists in JSX.
  */
@@ -34,24 +34,21 @@ export type PaymentMethodBadge = {
 };
 
 export const siteConfig = {
-  name: "Easy Breezy Travels",
-  shortName: "Easy Breezy",
+  name: "Easy Travels",
+  shortName: "Easy Travels",
   tagline:
-    "Comfortable journeys, trusted drivers, and thoughtfully planned travel across Himachal and beyond.",
+    "Comfortable journeys, trusted drivers, and thoughtfully planned travel for every route ahead.",
   /** Compact line under the logo in the header */
   headerEyebrow: "Travel · Taxi · Tours",
   description:
     "Premium travel and taxi experiences designed for comfort, clarity, and peace of mind.",
 
   contact: {
-    addressLines: [
-      "Vill Dohra, PO Bharoli Kalan,",
-      "Teh Jhandutta",
-    ] as const,
-    phone: "+91-94189-20004",
-    phoneHref: "tel:+919418920004",
-    email: "soniyapoonam9986@gmail.com",
-    emailHref: "mailto:soniyapoonam9986@gmail.com",
+    addressLines: ["123 Travel Avenue,", "City Center"] as const,
+    phone: "+91 90000 00000",
+    phoneHref: "tel:+919000000000",
+    email: "hello@easytravels.example",
+    emailHref: "mailto:hello@easytravels.example",
   },
 
   /**
@@ -147,7 +144,7 @@ export const siteConfig = {
      */
     showCtaStrip: false,
     ctaStrip: {
-      eyebrow: "Easy Breezy Travels",
+      eyebrow: "Easy Travels",
       heading: "Ready for your next journey?",
       description:
         "Effortless planning, comfortable rides, and reliable travel support—so you can focus on the road ahead.",

@@ -17,9 +17,9 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Easy Breezy Travels",
+  title: "Easy Travels",
   description:
-    "Premium travel experiences powered by modern technology — Easy Breezy Travels.",
+    "Premium travel experiences powered by modern technology — Easy Travels.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

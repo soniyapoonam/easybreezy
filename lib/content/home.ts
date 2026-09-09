@@ -1,10 +1,11 @@
 import { siteConfig } from "@/lib/site";
+import { unsplashImages } from "./unsplash";
 
 export const homeHero = {
   eyebrow: "Travel · Taxi · Tours",
   heading: "Journeys planned with care, not hurry.",
   description:
-    "Easy Breezy Travels arranges comfortable taxis, hill tours, and custom trips from Jhandutta—so the road ahead feels clear before you leave.",
+    "Easy Travels arranges comfortable taxis, tours, and custom trips—so the road ahead feels clear before you leave.",
   primaryCta: {
     label: siteConfig.bookingCtaLabel,
     href: siteConfig.bookingHref,
@@ -16,10 +17,10 @@ export const homeHero = {
   slides: [
     {
       id: "hills",
-      caption: "Himachal hill roads",
+      caption: "Scenic hill roads",
       tone: "ridge" as const,
       imageAlt:
-        "Hill stations landscape for the Easy Breezy Travels homepage banner",
+        "Hill stations landscape for the Easy Travels homepage banner",
       imageSrc: "/img/hill-stations.jpg",
     },
     {
@@ -70,19 +71,19 @@ export const homeTrustItems = [
 ] as const;
 
 export const homeAbout = {
-  eyebrow: "About Easy Breezy Travels",
-  heading: "A local travel desk with a calm way of working.",
-  body: "We are based in Vill Dohra, Tehsil Jhandutta. Families, visiting teams, and small groups come to us for taxis and tours that feel considered—clear communication, familiar hill routes, and itineraries that are not rushed for the sake of looking busy.",
+  eyebrow: "About Easy Travels",
+  heading: "A travel desk with a calm way of working.",
+  body: "We are based at 123 Travel Avenue, City Center. Families, visiting teams, and small groups come to us for taxis and tours that feel considered—clear communication, familiar routes, and itineraries that are not rushed for the sake of looking busy.",
   highlights: [
-    "Based in Jhandutta, serving Himachal and neighbouring routes",
+    "Based in City Center, serving regional and outstation routes",
     "Pickup details confirmed before every departure",
     "Itineraries paced for hill roads, not checklist tourism",
   ],
   ctaLabel: "Read our story",
   ctaHref: "/about",
-  imageAlt: "Placeholder for Easy Breezy Travels on the road in Himachal",
+  imageAlt: "Taxi on a scenic hill road for Easy Travels",
   tone: "forest" as const,
-  imageSrc: null,
+  imageSrc: unsplashImages.home.about,
 };
 
 export const homeWhyChoose = {
@@ -108,8 +109,9 @@ export const homeWhyChoose = {
       text: "When route calculation is connected, you will see distance and time. You will not see a fare in that panel.",
     },
   ],
-  visualAlt: "Placeholder for a quiet Himachal road at first light",
+  visualAlt: "Winding hill road through mountain scenery",
   tone: "pass" as const,
+  imageSrc: unsplashImages.home.whyChoose,
 };
 
 export const homeExperienceCta = {
@@ -120,6 +122,8 @@ export const homeExperienceCta = {
   primaryHref: siteConfig.bookingHref,
   secondaryLabel: siteConfig.bookingCtaLabel,
   secondaryHref: siteConfig.bookingHref,
+  imageSrc: unsplashImages.home.experienceCta,
+  imageAlt: "Hill station landscape with mountain peaks",
 };
 
 export const homeReviews = {

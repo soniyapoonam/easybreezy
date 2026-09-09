@@ -11,7 +11,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: `Services | ${siteConfig.name}`,
   description:
-    "Tour packages, custom trips, corporate taxis, round trips, local taxis, and outstation drives—arranged with clear routes and confirmed pickups from Jhandutta.",
+    "Tour packages, custom trips, corporate taxis, round trips, local taxis, and outstation drives—arranged with clear routes and confirmed pickups.",
 };
 
 export default function ServicesPage() {

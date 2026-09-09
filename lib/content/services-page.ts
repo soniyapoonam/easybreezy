@@ -1,27 +1,28 @@
 import { services, type Service } from "./services";
+import { unsplashImages } from "./unsplash";
 
-/** Presentation-only image map for the Services page (paths served from /public). */
+/** Presentation-only image map for the Services page showcase cards. */
 export const servicePageImages: Record<Service["id"], string> = {
-  "tour-package": "/img/hill-stations.jpg",
-  "custom-trip": "/img/tourist-place.jpg",
-  "corporate-taxi": "/img/corporate-taxi.jpg",
-  "round-trip": "/img/one-way.jpg",
-  "local-taxi": "/img/tour-taxi.jpg",
-  "outstation-taxi": "/img/hill-road.jpg",
+  "tour-package": unsplashImages.servicesPage.tourPackage,
+  "custom-trip": unsplashImages.servicesPage.customTrip,
+  "corporate-taxi": unsplashImages.servicesPage.corporateTaxi,
+  "round-trip": unsplashImages.servicesPage.roundTrip,
+  "local-taxi": unsplashImages.servicesPage.localTaxi,
+  "outstation-taxi": unsplashImages.servicesPage.outstationTaxi,
 };
 
 export const servicesPageIntro = {
   eyebrow: "What we arrange",
   heading: "Every mile planned with intention.",
   description:
-    "Easy Breezy Travels is a local travel desk in Jhandutta. We arrange hill tours, custom routes, corporate transfers, and taxis—so pickup times, pacing, and the road ahead feel clear before you leave.",
+    "Easy Travels is a demo travel desk at 123 Travel Avenue, City Center. We arrange tours, custom routes, corporate transfers, and taxis—so pickup times, pacing, and the road ahead feel clear before you leave.",
   highlights: [
-    "Tours, taxis, and custom trips across Himachal and beyond",
+    "Tours, taxis, and custom trips across regional and outstation routes",
     "Pickup details confirmed before every departure",
     "Routes paced for hill roads and longer outstation days",
   ],
-  imageSrc: "/img/hill-stations.jpg",
-  imageAlt: "Hill station landscape on a planned travel route",
+  imageSrc: unsplashImages.servicesPage.intro,
+  imageAlt: "Mountain landscape on a planned travel route",
 } as const;
 
 export const servicesJourney = {
@@ -73,8 +74,8 @@ export const servicesTogetherSection = {
       text: "Travel knowing each leg was arranged with the next in mind.",
     },
   ],
-  imageSrc: "/img/tour-taxi.jpg",
-  imageAlt: "Travel services arranged together for a comfortable hill journey",
+  imageSrc: unsplashImages.servicesPage.together,
+  imageAlt: "Comfortable taxi on a scenic travel route",
 } as const;
 
 export type ServiceWithImage = Service & { imageSrc: string };

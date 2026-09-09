@@ -75,10 +75,10 @@ export function ServicesIntroSection() {
                   className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-md"
                 >
                   <p className="font-heading text-sm font-semibold text-on-dark">
-                    Based in Jhandutta
+                    Based in City Center
                   </p>
                   <p className="mt-1 text-sm text-on-dark/80">
-                    Serving Himachal and neighbouring routes with considered
+                    Serving regional and outstation routes with considered
                     pacing—not rushed checklist tourism.
                   </p>
                 </div>

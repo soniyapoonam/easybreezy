@@ -19,6 +19,7 @@ export function TourPackageCard({
         <VisualPanel
           label={tourPackage.imageAlt}
           tone={tourPackage.tone}
+          imageSrc={tourPackage.imageSrc}
           className="h-full rounded-none shadow-none transition-transform duration-500 motion-safe:group-hover:scale-105"
         />
         {tourPackage.badge ? (
