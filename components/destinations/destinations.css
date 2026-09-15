@@ -1,0 +1,201 @@
+/* Destinations page motion only — not loaded as global site chrome. */
+
+.destinations-page {
+  overflow-x: clip;
+}
+
+.destinations-kenburns {
+  animation: destinations-kenburns 24s var(--ease-standard) infinite alternate;
+  transform-origin: center;
+}
+
+.destinations-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: destinations-rise 0.9s var(--ease-standard) forwards;
+}
+
+.destinations-reveal-delay-1 {
+  animation-delay: 120ms;
+}
+.destinations-reveal-delay-2 {
+  animation-delay: 240ms;
+}
+.destinations-reveal-delay-3 {
+  animation-delay: 360ms;
+}
+
+.destinations-route {
+  stroke-dasharray: 520;
+  stroke-dashoffset: 520;
+  animation: destinations-draw 2.6s var(--ease-standard) 0.5s forwards;
+}
+
+.destinations-float {
+  animation: destinations-float 8s var(--ease-standard) infinite;
+}
+
+.destinations-float-slow {
+  animation: destinations-float 11s var(--ease-standard) infinite reverse;
+}
+
+.destinations-pulse {
+  animation: destinations-pulse 3.4s var(--ease-standard) infinite;
+}
+
+.destinations-gradient-shift {
+  animation: destinations-gradient-shift 12s ease-in-out infinite alternate;
+}
+
+.destinations-map-route {
+  stroke-dasharray: 8 10;
+  animation: destinations-map-dash 24s linear infinite;
+}
+
+.destinations-marker {
+  animation: destinations-marker-pulse 2.8s var(--ease-standard) infinite;
+}
+
+@keyframes destinations-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+@keyframes destinations-rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes destinations-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes destinations-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes destinations-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes destinations-gradient-shift {
+  0% {
+    opacity: 0.55;
+    transform: translateX(-2%) scale(1.02);
+  }
+  100% {
+    opacity: 0.75;
+    transform: translateX(2%) scale(1.05);
+  }
+}
+
+@keyframes destinations-map-dash {
+  to {
+    stroke-dashoffset: -200;
+  }
+}
+
+@keyframes destinations-marker-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+.destinations-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s var(--ease-standard),
+    transform 0.7s var(--ease-standard);
+}
+
+.destinations-in.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.destinations-grid-enter {
+  animation: destinations-grid-fade 0.35s var(--ease-standard) both;
+}
+
+.destinations-card-enter {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: destinations-card-rise 0.45s var(--ease-standard) forwards;
+}
+
+@keyframes destinations-grid-fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes destinations-card-rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .destinations-page .destinations-kenburns,
+  .destinations-page .destinations-reveal,
+  .destinations-page .destinations-route,
+  .destinations-page .destinations-float,
+  .destinations-page .destinations-float-slow,
+  .destinations-page .destinations-pulse,
+  .destinations-page .destinations-gradient-shift,
+  .destinations-page .destinations-map-route,
+  .destinations-page .destinations-marker {
+    animation: none !important;
+  }
+
+  .destinations-page .destinations-reveal,
+  .destinations-page .destinations-in,
+  .destinations-page .destinations-in.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .destinations-page .destinations-route {
+    stroke-dashoffset: 0;
+  }
+
+  .destinations-page .destinations-grid-enter,
+  .destinations-page .destinations-card-enter {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
