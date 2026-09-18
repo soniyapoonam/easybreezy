@@ -6,7 +6,6 @@ import {
   FinalCtaSection,
   HeroSlider,
   ReviewsSection,
-  ServicesSection,
   TrustStrip,
   TourPackagesSection,
   WhyChooseSection,
@@ -29,7 +28,6 @@ export default function HomePage() {
       <HeroSlider />
       <TrustStrip />
       <AboutSection />
-      <ServicesSection />
       <WhyChooseSection />
       <DestinationsSection />
       <ExperienceCtaSection />

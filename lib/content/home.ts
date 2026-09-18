@@ -72,18 +72,49 @@ export const homeTrustItems = [
 
 export const homeAbout = {
   eyebrow: "About Easy Travels",
-  heading: "A travel desk with a calm way of working.",
-  body: "We are based at 123 Travel Avenue, City Center. Families, visiting teams, and small groups come to us for taxis and tours that feel considered—clear communication, familiar routes, and itineraries that are not rushed for the sake of looking busy.",
+  heading: "Every mile planned with intention.",
+  body:
+    "From comfortable transfers to thoughtfully planned journeys, Easy Travels takes care of the details so you can focus on enjoying the experience.",
   highlights: [
-    "Based in City Center, serving regional and outstation routes",
-    "Pickup details confirmed before every departure",
-    "Itineraries paced for hill roads, not checklist tourism",
+    {
+      title: "Thoughtful Travel Planning",
+      text:
+        "Routes and timing shaped around real distances, rest stops, and a pace that still feels human—not rushed checklist tourism.",
+    },
+    {
+      title: "Personalized Journeys",
+      text:
+        "Tell us what matters on your trip; we help connect the places you care about into one clear, coherent plan.",
+    },
+    {
+      title: "Comfortable & Reliable Travel",
+      text:
+        "Pickup details confirmed before every departure, with pacing suited to hill roads and longer outstation days.",
+    },
+    {
+      title: "Local Experiences",
+      text:
+        "Familiar regional routes and towns mean the miles between stops feel considered, not generic.",
+    },
+    {
+      title: "Flexible Travel Options",
+      text:
+        "Tours, taxis, and custom trips arranged for families, visiting teams, and small groups travelling together.",
+    },
+    {
+      title: "Travel Support",
+      text:
+        "A real person to speak with before, during, and after the journey—the same people running the trip.",
+    },
   ],
   ctaLabel: "Read our story",
   ctaHref: "/about",
-  imageAlt: "Taxi on a scenic hill road for Easy Travels",
+  imageAlt: "Travelers enjoying a scenic journey for Easy Travels",
+  imageCaptionTitle: "Based in City Center",
+  imageCaptionBody:
+    "Serving regional and outstation routes with considered pacing—not rushed checklist tourism.",
   tone: "forest" as const,
-  imageSrc: unsplashImages.home.about,
+  imageSrc: "/img/about-travel.jpg",
 };
 
 export const homeServicesArrange = {

@@ -13,6 +13,9 @@ import {
   SocialIcon,
 } from "./icons";
 
+const topBarIconContainerClass =
+  "inline-flex size-7 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-on-primary transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:border-accent hover:bg-accent hover:text-on-accent sm:size-8";
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const panelId = useId();
@@ -31,7 +34,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="relative sticky top-0 z-50 border-b-[3px] border-accent bg-surface shadow-md">
+    <header className="relative sticky top-0 z-50 border-b-[2px] border-accent bg-surface shadow-md">
       <div className="bg-primary text-on-primary">
         <div className="flex min-h-12 items-center justify-between gap-3 px-4 py-2 text-xs sm:gap-4 sm:px-8 sm:text-sm lg:px-10">
           <div className="flex min-w-0 items-center gap-3 sm:gap-6">
@@ -39,11 +42,15 @@ export function Header() {
               href={siteConfig.contact.emailHref}
               className="inline-flex min-w-0 items-center gap-2 text-on-primary/90 no-underline transition-colors hover:text-highlight"
             >
-              <IconMail className="size-3.5 shrink-0 text-accent" />
+              <span className={topBarIconContainerClass} aria-hidden="true">
+                <IconMail className="size-3.5" />
+              </span>
               <span className="truncate">{siteConfig.contact.email}</span>
             </a>
             <span className="hidden min-w-0 items-center gap-2 text-on-primary/90 sm:inline-flex">
-              <IconMapPin className="size-3.5 shrink-0 text-accent" />
+              <span className={topBarIconContainerClass} aria-hidden="true">
+                <IconMapPin className="size-3.5" />
+              </span>
               <span className="truncate">
                 {siteConfig.contact.addressLines.join(" ")}
               </span>
@@ -53,7 +60,7 @@ export function Header() {
             {siteConfig.social.map((item) => (
               <span
                 key={item.id}
-                className="inline-flex size-7 items-center justify-center rounded-full border border-white/20 bg-white/10 text-on-primary transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:border-accent hover:bg-accent hover:text-on-accent sm:size-8"
+                className={topBarIconContainerClass}
                 role="img"
                 aria-label={item.label}
                 title={item.label}
@@ -65,7 +72,7 @@ export function Header() {
         </div>
       </div>
 
-      <div className="grid min-h-[5.25rem] grid-cols-[minmax(10rem,1fr)_auto] items-center gap-3 lg:grid-cols-[minmax(15rem,auto)_minmax(0,1fr)_auto] lg:gap-5">
+      <div className="grid min-h-[5.25rem] grid-cols-[minmax(10rem,1fr)_auto] items-center gap-3 lg:gap-5">
         <Link
           href="/"
           className="group relative flex h-full min-w-0 items-center gap-3 bg-surface px-4 no-underline sm:px-8 lg:px-10"
@@ -83,22 +90,21 @@ export function Header() {
           </span>
         </Link>
 
-        <nav
-          className="hidden items-center justify-start gap-2 px-3 lg:flex xl:px-6"
-          aria-label="Main navigation"
-        >
-          {siteConfig.mainNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-2 py-2 font-heading text-sm font-semibold text-text no-underline transition-colors hover:bg-sky hover:text-secondary"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex h-full items-stretch justify-end gap-2 sm:gap-4">
+        <div className="flex h-full items-stretch justify-end gap-2 sm:gap-4 lg:gap-5">
+          <nav
+            className="hidden items-center justify-start gap-2 px-3 lg:flex xl:px-6"
+            aria-label="Main navigation"
+          >
+            {siteConfig.mainNav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-md px-2 py-2 font-heading text-sm font-semibold text-text no-underline transition-colors hover:bg-sky hover:text-secondary"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
           <a
             href={siteConfig.contact.phoneHref}
             className="hidden items-center gap-2 text-left no-underline md:inline-flex"
