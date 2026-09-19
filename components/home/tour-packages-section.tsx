@@ -22,7 +22,7 @@ export function TourPackagesSection() {
           </Link>
         </div>
         <ul className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {homeTourPackages.slice(0,4).map((tourPackage) => (
+          {homeTourPackages.slice(0, 4).map((tourPackage) => (
             <li key={tourPackage.id}>
               <TourPackageCard tourPackage={tourPackage} />
             </li>

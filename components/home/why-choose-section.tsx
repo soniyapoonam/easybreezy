@@ -14,12 +14,14 @@ export function WhyChooseSection() {
               heading={homeWhyChoose.heading}
               description={homeWhyChoose.description}
             />
-            <VisualPanel
-              label={homeWhyChoose.visualAlt}
-              tone={homeWhyChoose.tone}
-              imageSrc={homeWhyChoose.imageSrc}
-              className="mt-8 hidden min-h-64 lg:block"
-            />
+            <div className="mt-8 hidden min-h-64 overflow-hidden rounded-[1.75rem] lg:block">
+              <VisualPanel
+                label={homeWhyChoose.visualAlt}
+                tone={homeWhyChoose.tone}
+                imageSrc={homeWhyChoose.imageSrc}
+                className="min-h-64"
+              />
+            </div>
           </div>
           <ol className="grid gap-4 sm:grid-cols-2">
             {homeWhyChoose.points.map((point, index) => (
