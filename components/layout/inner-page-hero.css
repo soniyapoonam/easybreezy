@@ -1,0 +1,121 @@
+/* Inner page hero (Contact-style) — shared across inner routes */
+
+.ipage-hero-kenburns {
+  animation: ipage-hero-kenburns 22s var(--ease-standard) infinite alternate;
+  transform-origin: center;
+}
+
+.ipage-hero-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: ipage-hero-rise 0.9s var(--ease-standard) forwards;
+}
+
+.ipage-hero-reveal-delay-1 {
+  animation-delay: 120ms;
+}
+.ipage-hero-reveal-delay-2 {
+  animation-delay: 240ms;
+}
+.ipage-hero-reveal-delay-3 {
+  animation-delay: 360ms;
+}
+
+.ipage-hero-route {
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: ipage-hero-draw 2.4s var(--ease-standard) 0.4s forwards;
+}
+
+.ipage-hero-float {
+  animation: ipage-hero-float 7s var(--ease-standard) infinite;
+}
+
+.ipage-hero-float-slow {
+  animation: ipage-hero-float 10s var(--ease-standard) infinite reverse;
+}
+
+.ipage-hero-pulse {
+  animation: ipage-hero-pulse 3.2s var(--ease-standard) infinite;
+}
+
+.ipage-hero-scroll-cue {
+  animation: ipage-hero-cue 2.2s var(--ease-standard) infinite;
+}
+
+@keyframes ipage-hero-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes ipage-hero-rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ipage-hero-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ipage-hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes ipage-hero-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes ipage-hero-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ipage-hero-kenburns,
+  .ipage-hero-reveal,
+  .ipage-hero-route,
+  .ipage-hero-float,
+  .ipage-hero-float-slow,
+  .ipage-hero-pulse,
+  .ipage-hero-scroll-cue {
+    animation: none !important;
+  }
+
+  .ipage-hero-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .ipage-hero-route {
+    stroke-dashoffset: 0;
+  }
+}

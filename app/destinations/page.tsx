@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { DestinationsPageContent } from "@/components/destinations";
 import "@/components/destinations/destinations.css";
+import { InnerPageHero } from "@/components/layout";
+import { destinationsInnerPageHero } from "@/lib/content/inner-page-hero";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
 export default function DestinationsPage() {
   return (
     <div className="destinations-page">
+      <InnerPageHero {...destinationsInnerPageHero} />
       <Suspense fallback={null}>
         <DestinationsPageContent />
       </Suspense>

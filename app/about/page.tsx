@@ -4,6 +4,8 @@ import {
   EnjoyAdventureSection,
   WhoWeAreSection,
 } from "@/components/about";
+import { InnerPageHero } from "@/components/layout";
+import { aboutInnerPageHero } from "@/lib/content/inner-page-hero";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <InnerPageHero {...aboutInnerPageHero} />
       <EnjoyAdventureSection />
       <AboutWhyChooseSection />
       <WhoWeAreSection />

@@ -65,11 +65,11 @@ function PackageCard({ tourPackage }: { tourPackage: TourPackageListingItem }) {
 
         <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
           <span className="inline-flex items-center gap-1.5">
-            <IconCalendarCheck className="size-4 shrink-0 text-[#B88E5F]" />
+            <IconCalendarCheck className="size-4 shrink-0 text-accent" />
             {tourPackage.days} Days {tourPackage.nights} Nights
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <IconMapPin className="size-4 shrink-0 text-[#B88E5F]" />
+            <IconMapPin className="size-4 shrink-0 text-accent" />
             {tourPackage.destinationLabel}
           </span>
         </div>
@@ -88,7 +88,7 @@ function PackageCard({ tourPackage }: { tourPackage: TourPackageListingItem }) {
           </p>
           <Link
             href={siteConfig.bookingHref}
-            className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#B88E5F] px-5 py-2.5 font-heading text-sm font-semibold text-white no-underline shadow-sm transition-[transform,background-color,box-shadow] duration-300 hover:bg-[#a67d4f] hover:shadow-md motion-safe:hover:scale-[1.02] motion-reduce:transform-none"
+            className="inline-flex shrink-0 items-center justify-center rounded-full bg-accent px-5 py-2.5 font-heading text-sm font-semibold text-on-accent no-underline shadow-sm transition-[transform,background-color,box-shadow,filter] duration-300 hover:brightness-110 hover:shadow-md motion-safe:hover:scale-[1.02] motion-reduce:transform-none"
           >
             View Details
           </Link>
@@ -99,60 +99,10 @@ function PackageCard({ tourPackage }: { tourPackage: TourPackageListingItem }) {
 }
 
 export function TourPackagesMain() {
-  const { hero, featured, planCta } = tourPackagesPageContent;
+  const { featured, planCta } = tourPackagesPageContent;
 
   return (
     <>
-      {/* Hero */}
-      <section
-        aria-labelledby="tour-packages-hero-heading"
-        className="relative overflow-hidden bg-[#1A1A1A]"
-      >
-        <div className="absolute inset-0" aria-hidden="true">
-          <img
-            src={hero.imageSrc}
-            alt=""
-            className="h-full w-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-linear-to-r from-[#1A1A1A]/85 via-[#1A1A1A]/55 to-[#1A1A1A]/25" />
-        </div>
-
-        <Container className="relative pt-10 pb-14 md:pt-14 md:pb-16">
-          <Reveal className="max-w-2xl">
-            <p
-              className="font-heading text-[11px] font-semibold tracking-[0.28em] text-white/80 uppercase sm:text-xs"
-            >
-              {hero.eyebrow}
-            </p>
-            <h1
-              id="tour-packages-hero-heading"
-              className="mt-4 font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-[3.25rem] md:leading-[1.1]"
-            >
-              {hero.heading}
-            </h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/82 sm:text-lg">
-              {hero.description}
-            </p>
-            <span
-              className="mt-6 block h-[3px] w-14 rounded-full bg-[#B88E5F]"
-              aria-hidden="true"
-            />
-          </Reveal>
-
-          <nav aria-label="Breadcrumb" className="relative mt-6">
-            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/75">
-              <li>
-                <Link href="/" className="text-white/75 no-underline hover:text-white">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white" aria-current="page">Tour Packages</li>
-            </ol>
-          </nav>
-        </Container>
-      </section>
-
       {/* Featured grid */}
       <Section
         id="tour-packages-grid"
@@ -172,7 +122,7 @@ export function TourPackagesMain() {
               {featured.description}
             </p>
             <span
-              className="mx-auto mt-5 block h-[3px] w-12 rounded-full bg-[#B88E5F]"
+              className="mx-auto mt-5 block h-[3px] w-12 rounded-full bg-accent"
               aria-hidden="true"
             />
           </Reveal>
@@ -214,7 +164,7 @@ export function TourPackagesMain() {
 
                 <div className="flex flex-col justify-center px-6 py-8 sm:px-8 lg:py-10">
                   <p
-                    className="font-heading text-[11px] font-semibold tracking-[0.22em] text-[#B88E5F] uppercase"
+                    className="font-heading text-[11px] font-semibold tracking-[0.22em] text-accent uppercase"
                   >
                     {planCta.eyebrow}
                   </p>
@@ -229,7 +179,7 @@ export function TourPackagesMain() {
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[#B88E5F] px-6 py-3 font-heading text-sm font-semibold text-white no-underline shadow-md transition-[background-color,transform,box-shadow] duration-300 hover:bg-[#a67d4f] hover:shadow-lg motion-safe:hover:translate-x-0.5 motion-reduce:transform-none"
+                    className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-accent px-6 py-3 font-heading text-sm font-semibold text-on-accent no-underline shadow-md transition-[background-color,transform,box-shadow,filter] duration-300 hover:brightness-110 hover:shadow-lg motion-safe:hover:translate-x-0.5 motion-reduce:transform-none"
                   >
                     {planCta.buttonLabel}
                     <span aria-hidden="true">→</span>
@@ -243,7 +193,7 @@ export function TourPackagesMain() {
                     return (
                       <div key={item.id} className="flex items-start gap-3">
                         <span
-                          className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white text-[#B88E5F]"
+                          className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white text-accent"
                         >
                           <Icon className="size-5" />
                         </span>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { InnerPageHero } from "@/components/layout";
 import { Container, Section, SectionHeading } from "@/components/ui";
+import { blogInnerPageHero } from "@/lib/content/inner-page-hero";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -8,10 +10,13 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <Section>
-      <Container>
-        <SectionHeading as="h1" heading="Blog" />
-      </Container>
-    </Section>
+    <>
+      <InnerPageHero {...blogInnerPageHero} />
+      <Section>
+        <Container>
+          <SectionHeading as="h2" heading="Blog" />
+        </Container>
+      </Section>
+    </>
   );
 }

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { InnerPageHero } from "@/components/layout";
 import {
-  ServicesAboutSection,
   ServicesTogetherSection,
   ServicesIntroSection,
   ServicesJourneySection,
   ServicesShowcaseSection,
 } from "@/components/services";
+import { servicesInnerPageHero } from "@/lib/content/inner-page-hero";
 import { getServicesForPage } from "@/lib/content/services-page";
 import { siteConfig } from "@/lib/site";
 
@@ -20,7 +21,7 @@ export default function ServicesPage() {
 
   return (
     <>
-      <ServicesAboutSection />
+      <InnerPageHero {...servicesInnerPageHero} />
       <ServicesIntroSection />
       <ServicesShowcaseSection services={services} />
       <ServicesJourneySection />

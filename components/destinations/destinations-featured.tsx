@@ -202,7 +202,7 @@ export function DestinationsFeatured({ search, region }: DestinationsFeaturedPro
     <Section
       id="destinations-featured"
       aria-labelledby="destinations-featured-heading"
-      className="bg-background pt-8 md:pt-12"
+      className="bg-white"
     >
       <Container>
         <Reveal>

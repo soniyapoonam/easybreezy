@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { InnerPageHero } from "@/components/layout";
 import { TourPackagesMain } from "@/components/tour-packages";
+import { tourPackagesInnerPageHero } from "@/lib/content/inner-page-hero";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -9,5 +11,10 @@ export const metadata: Metadata = {
 };
 
 export default function TourPackagesPage() {
-  return <TourPackagesMain />;
+  return (
+    <>
+      <InnerPageHero {...tourPackagesInnerPageHero} />
+      <TourPackagesMain />
+    </>
+  );
 }

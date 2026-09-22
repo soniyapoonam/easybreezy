@@ -10,9 +10,18 @@ const bannerImageSrc =
   homeHero.slides[0]?.imageSrc ??
   "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80";
 
+const INNER_PAGE_HERO_ROUTES = new Set([
+  "/contact",
+  "/about",
+  "/services",
+  "/booking",
+  "/tour-packages",
+  "/destinations",
+  "/blog",
+]);
+
 function pageLabelFromPath(pathname: string): string | null {
-  if (pathname === "/" || pathname === "/contact" || pathname === "/destinations")
-    return null;
+  if (pathname === "/" || INNER_PAGE_HERO_ROUTES.has(pathname)) return null;
 
   const navMatch = [...siteConfig.mainNav]
     .filter((item) => item.href !== "/")

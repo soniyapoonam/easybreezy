@@ -4,10 +4,8 @@ import { Container } from "@/components/ui";
 import { siteConfig, type SocialPlatform } from "@/lib/site";
 import { IconMail, IconPhone, SocialIcon } from "./icons";
 
-const FOOTER_BG =
-  "radial-gradient(circle at 12% 0%, rgba(122, 46, 34, 0.18), transparent 45%), radial-gradient(circle at 88% 100%, rgba(184, 147, 90, 0.10), transparent 40%), #171310";
+const FOOTER_BG = "#102A43";
 
-const FOOTER_ACCENT = "#B8935A";
 const FOOTER_BORDER = "rgba(241,231,216,0.12)";
 const FOOTER_TEXT = "rgba(241,231,216,0.72)";
 const FOOTER_TEXT_MUTED = "rgba(241,231,216,0.52)";
@@ -40,8 +38,7 @@ function FooterHeading({ children }: { children: ReactNode }) {
   return (
     <div className="w-full">
       <h3
-        className="font-heading text-[1.0625rem] font-semibold tracking-normal"
-        style={{ color: FOOTER_ACCENT }}
+        className="font-heading text-[1.0625rem] font-semibold tracking-normal text-white"
       >
         {children}
       </h3>
@@ -58,7 +55,7 @@ function NewsletterForm() {
   return (
     <div className="mt-5 w-full">
       <form
-        className="flex w-full min-w-0 flex-col gap-2.5 sm:flex-row sm:items-stretch"
+        className="flex w-full min-w-0 flex-col gap-0 sm:flex-row sm:items-stretch"
       >
         <label htmlFor="footer-newsletter-email" className="sr-only">
           Email address
@@ -69,16 +66,11 @@ function NewsletterForm() {
           name="email"
           placeholder="Your email"
           autoComplete="email"
-          className="min-w-0 flex-1 rounded-md border bg-[rgba(0,0,0,0.22)] px-4 py-3 text-sm outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-[rgba(241,231,216,0.38)] focus:border-[rgba(184,147,90,0.45)] focus:shadow-[0_0_0_1px_rgba(184,147,90,0.2)]"
-          style={{
-            borderColor: FOOTER_BORDER,
-            color: "rgba(241,231,216,0.88)",
-          }}
+          className="min-w-0 flex-1 rounded-md border border-[rgba(241,231,216,0.12)] bg-[rgba(0,0,0,0.22)] px-4 py-3 text-sm text-[rgba(241,231,216,0.88)] outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-[rgba(241,231,216,0.38)] focus:border-white/45 focus:shadow-[0_0_0_1px_rgba(255,255,255,0.2)] max-sm:rounded-b-none sm:rounded-r-none"
         />
         <button
           type="button"
-          className="shrink-0 rounded-md px-6 py-3 font-heading text-sm font-semibold text-[rgba(241,231,216,0.95)] transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:brightness-110 motion-reduce:transform-none sm:px-7"
-          style={{ backgroundColor: "#7A3A2E" }}
+          className="shrink-0 rounded-md bg-accent px-6 py-3 font-heading text-sm font-semibold text-on-accent transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:brightness-110 motion-reduce:transform-none max-sm:rounded-t-none sm:rounded-l-none sm:px-7"
         >
           Join
         </button>
@@ -101,7 +93,7 @@ function FooterNavLink({ href, children }: { href: string; children: ReactNode }
       style={{ color: FOOTER_TEXT }}
     >
       <span
-        className="transition-colors duration-300 group-hover:text-[#B8935A]"
+        className="transition-colors duration-300 group-hover:text-white"
       >
         {children}
       </span>
@@ -121,7 +113,7 @@ function SocialButton({
       href="#"
       aria-label={label}
       title={label}
-      className="inline-flex size-9 items-center justify-center rounded-full border border-[rgba(241,231,216,0.12)] bg-[rgba(241,231,216,0.12)] text-[rgba(241,231,216,0.88)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-105 hover:border-[rgba(184,147,90,0.55)] hover:bg-[rgba(184,147,90,0.14)] hover:text-[#B8935A] motion-reduce:transform-none"
+      className="inline-flex size-9 items-center justify-center rounded-full border border-[rgba(241,231,216,0.12)] bg-[rgba(241,231,216,0.12)] text-[rgba(241,231,216,0.88)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-105 hover:border-white/55 hover:bg-white/14 hover:text-white motion-reduce:transform-none"
     >
       <SocialIcon platform={platform} className="size-[1.05rem]" />
     </a>
@@ -141,23 +133,20 @@ function BrandLogo() {
       >
         <span className="relative inline-flex size-10 items-center justify-center sm:size-11">
           <span
-            className="absolute inset-x-0 top-2 h-3 -skew-x-20 rounded-full border-t-[3px] transition-colors duration-300 group-hover:border-[#B8935A]"
-            style={{ borderColor: "rgba(184, 147, 90, 0.75)" }}
+            className="absolute inset-x-0 top-2 h-3 -skew-x-20 rounded-full border-t-[3px] border-white transition-colors duration-300"
           />
           <span
             className="absolute inset-x-1 top-5 h-3 -skew-x-20 rounded-full border-t-[3px] transition-colors duration-300"
             style={{ borderColor: "rgba(241, 231, 216, 0.55)" }}
           />
           <span
-            className="absolute inset-x-2 bottom-2 h-1.5 rounded-full transition-transform duration-300 group-hover:scale-110"
-            style={{ backgroundColor: FOOTER_ACCENT }}
+            className="absolute inset-x-2 bottom-2 h-1.5 rounded-full bg-accent transition-transform duration-300 group-hover:scale-110"
           />
         </span>
       </span>
       <span className="min-w-0 pt-0.5">
         <span
-          className="block font-heading text-base font-bold tracking-[0.03em] transition-colors duration-300 group-hover:text-[#B8935A] sm:text-lg"
-          style={{ color: FOOTER_ACCENT }}
+          className="block font-heading text-base font-bold tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-white sm:text-lg"
         >
           {siteConfig.name}
         </span>
@@ -365,21 +354,21 @@ export function Footer() {
               </p>
               <a
                 href={siteConfig.contact.phoneHref}
-                className="inline-flex items-center gap-2.5 no-underline transition-colors duration-300 hover:text-[#B8935A]"
+                className="inline-flex items-center gap-2.5 no-underline transition-colors duration-300 hover:text-white"
                 style={{ color: FOOTER_TEXT }}
               >
-                <IconPhone className="size-4 shrink-0" style={{ color: FOOTER_ACCENT }} />
-                <span className="border-b border-transparent transition-[border-color,color] duration-300 hover:border-[#B8935A]">
+                <IconPhone className="size-4 shrink-0 text-white" />
+                <span className="border-b border-transparent transition-[border-color,color] duration-300 hover:border-white">
                   {siteConfig.contact.phone}
                 </span>
               </a>
               <a
                 href={siteConfig.contact.emailHref}
-                className="block break-all no-underline transition-colors duration-300 hover:text-[#B8935A]"
+                className="block break-all no-underline transition-colors duration-300 hover:text-white"
                 style={{ color: FOOTER_TEXT }}
               >
                 <span className="inline-flex items-center gap-2.5">
-                  <IconMail className="size-4 shrink-0" style={{ color: FOOTER_ACCENT }} />
+                  <IconMail className="size-4 shrink-0 text-white" />
                   {siteConfig.contact.email}
                 </span>
               </a>
@@ -410,8 +399,7 @@ export function Footer() {
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
               <p
-                className="font-heading text-[0.8125rem] font-semibold tracking-[0.16em] uppercase"
-                style={{ color: FOOTER_ACCENT }}
+                className="font-heading text-[0.8125rem] font-semibold tracking-[0.16em] text-white uppercase"
               >
                 Secure Payment
               </p>
@@ -449,7 +437,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="no-underline transition-colors duration-300 hover:text-[#B8935A]"
+                  className="no-underline transition-colors duration-300 hover:text-white"
                   style={{ color: FOOTER_TEXT_MUTED }}
                 >
                   Privacy Policy
@@ -458,7 +446,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="no-underline transition-colors duration-300 hover:text-[#B8935A]"
+                  className="no-underline transition-colors duration-300 hover:text-white"
                   style={{ color: FOOTER_TEXT_MUTED }}
                 >
                   Terms &amp; Conditions
@@ -467,7 +455,7 @@ export function Footer() {
               <li>
                 <Link
                   href={siteConfig.bookingHref}
-                  className="no-underline transition-colors duration-300 hover:text-[#B8935A]"
+                  className="no-underline transition-colors duration-300 hover:text-white"
                   style={{ color: FOOTER_TEXT_MUTED }}
                 >
                   Booking
