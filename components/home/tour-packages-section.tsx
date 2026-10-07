@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { Container, Section, SectionHeading } from "@/components/ui";
-import { homeTourPackages } from "@/lib/content/destinations";
-import { TourPackageCard } from "./tour-package-card";
+import { TourPackageListingCard } from "@/components/tour-packages";
+import { getLatestWordpressTourPackages } from "@/lib/wordpress/tour-packages";
 
-export function TourPackagesSection() {
+export async function TourPackagesSection() {
+  const latestPackages = await getLatestWordpressTourPackages();
+
   return (
     <Section
       className="bg-surface"
@@ -21,10 +23,10 @@ export function TourPackagesSection() {
             Explore destinations
           </Link>
         </div>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {homeTourPackages.slice(0, 4).map((tourPackage) => (
+        <ul className="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {latestPackages.map((tourPackage) => (
             <li key={tourPackage.id}>
-              <TourPackageCard tourPackage={tourPackage} />
+              <TourPackageListingCard tourPackage={tourPackage} />
             </li>
           ))}
         </ul>

@@ -42,8 +42,8 @@ export function TourPackageCard({
       <div className="flex flex-1 flex-col p-5 pt-9">
         <p className="text-xs font-medium text-muted">Demo package rating</p>
         <div className="mt-1 flex items-center gap-2" aria-label={`${tourPackage.rating} out of 5 demo rating`}>
-          <span className="tracking-[0.15em] text-highlight" aria-hidden="true">
-            {"★".repeat(tourPackage.rating)}
+          <span className="tracking-[0.15em] text-primary" aria-hidden="true">
+            {"★\uFE0E".repeat(tourPackage.rating)}
           </span>
           <span className="text-xs text-muted">
             ({tourPackage.reviewCount} Reviews)

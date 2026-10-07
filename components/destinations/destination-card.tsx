@@ -31,41 +31,24 @@ export function DestinationCard({
         loading="lazy"
         decoding="async"
       />
-      <div
-        className="absolute inset-0 bg-linear-to-t from-dark/85 via-dark/30 to-dark/10 transition-colors duration-500 group-hover:from-dark/90"
-        aria-hidden="true"
-      />
 
-      <div className="relative mt-auto w-full p-5 sm:p-6">
-        <p className="text-xs font-medium tracking-wide text-highlight uppercase">
-          {destination.country}
-        </p>
-        <h3
-          className={cn(
-            "mt-1 font-heading font-semibold text-on-dark transition-transform duration-500 motion-safe:group-hover:-translate-y-1",
-            isLarge ? "text-2xl md:text-3xl" : isMedium ? "text-xl md:text-2xl" : "text-lg",
-          )}
-        >
-          {destination.name}
-        </h3>
-        <p
-          className={cn(
-            "mt-2 text-sm leading-relaxed text-on-dark/80",
-            !isLarge && "line-clamp-2",
-            isLarge && "max-w-md",
-          )}
-        >
-          {destination.summary}
-        </p>
-        <span
-          className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-on-dark transition-[gap] duration-300 group-hover:gap-3"
-          aria-hidden="true"
-        >
-          Explore
-          <span className="inline-flex size-8 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm transition-transform duration-300 group-hover:translate-x-0.5">
+      <div className="relative mt-auto w-full bg-primary/40">
+        <div className="flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5">
+          <h3
+            className={cn(
+              "min-w-0 flex-1 font-heading font-semibold text-on-primary",
+              isLarge ? "text-2xl md:text-3xl" : isMedium ? "text-xl md:text-2xl" : "text-lg",
+            )}
+          >
+            {destination.country} ({destination.name})
+          </h3>
+          <span
+            className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-white/20 text-on-primary transition-transform duration-300 group-hover:translate-x-0.5"
+            aria-hidden="true"
+          >
             →
           </span>
-        </span>
+        </div>
       </div>
     </Link>
   );

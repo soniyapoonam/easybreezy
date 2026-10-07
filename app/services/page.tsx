@@ -7,8 +7,8 @@ import {
   ServicesShowcaseSection,
 } from "@/components/services";
 import { servicesInnerPageHero } from "@/lib/content/inner-page-hero";
-import { getServicesForPage } from "@/lib/content/services-page";
 import { siteConfig } from "@/lib/site";
+import { getWordpressServices } from "@/lib/wordpress/services";
 
 export const metadata: Metadata = {
   title: `Services | ${siteConfig.name}`,
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     "Tour packages, custom trips, corporate taxis, round trips, local taxis, and outstation drives—arranged with clear routes and confirmed pickups.",
 };
 
-export default function ServicesPage() {
-  const services = getServicesForPage();
+export default async function ServicesPage() {
+  const services = await getWordpressServices();
 
   return (
     <>

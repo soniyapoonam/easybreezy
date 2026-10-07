@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/site";
 import {
   destinations,
   homeTourPackages,
@@ -54,6 +55,8 @@ export type TourPackageListingItem = TourPackage & {
   priceFrom: number;
   listingBadge?: string;
   badgeTone: TourPackageBadgeTone;
+  ctaLabel: string;
+  ctaHref: string;
 };
 
 type ListingMeta = {
@@ -151,6 +154,8 @@ function enrichPackage(pkg: TourPackage): TourPackageListingItem {
     priceFrom: meta?.priceFrom ?? startingPrice,
     listingBadge: meta?.listingBadge ?? pkg.badge,
     badgeTone: meta?.badgeTone ?? "default",
+    ctaLabel: "Book Now",
+    ctaHref: siteConfig.bookingHref,
   };
 }
 
@@ -198,6 +203,8 @@ function buildExtraPackage(
     priceFrom: meta.priceFrom,
     listingBadge: meta.listingBadge,
     badgeTone: meta.badgeTone,
+    ctaLabel: "Book Now",
+    ctaHref: siteConfig.bookingHref,
   };
 }
 
@@ -243,6 +250,15 @@ export const tourPackagesListing: TourPackageListingItem[] =
     if (!pkg) throw new Error(`Missing tour package: ${id}`);
     return pkg;
   });
+
+/** Latest packages for Home — last items in the catalog until WordPress dates exist. */
+export const LATEST_TOUR_PACKAGE_COUNT = 3;
+
+export function getLatestTourPackages(
+  count = LATEST_TOUR_PACKAGE_COUNT,
+): TourPackageListingItem[] {
+  return tourPackagesListing.slice(-count);
+}
 
 export const tourPackageFilterOptions = {
   destinations: [
