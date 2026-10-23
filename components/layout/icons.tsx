@@ -199,6 +199,46 @@ export function IconCalendarCheck(props: IconProps) {
   );
 }
 
+export function IconHeart(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <path d="M19.5 12.6c1.4-1.4 2.8-3.1 2.8-5.2A4.6 4.6 0 0 0 12 6.1 4.6 4.6 0 0 0 1.7 7.4c0 2.1 1.4 3.8 2.8 5.2L12 20.2z" />
+    </svg>
+  );
+}
+
+export function IconArrowRight(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+export function IconChevronDown(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+export function IconCheck(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <path d="m5 12.5 4.2 4.2L19 7.5" />
+    </svg>
+  );
+}
+
+export function IconPlus(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <path d="M12 5v14M5 12h14" />
+    </svg>
+  );
+}
+
 const socialIconMap: Record<SocialPlatform, ComponentType<IconProps>> = {
   facebook: IconFacebook,
   instagram: IconInstagram,

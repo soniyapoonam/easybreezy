@@ -15,7 +15,7 @@ export function TourPackageCard({
       interactive
       className="group flex h-full flex-col overflow-hidden rounded-none border-border/70 p-0"
     >
-      <div className="relative aspect-16/10 overflow-hidden rounded-[1.75rem]">
+      <div className="relative aspect-16/10 overflow-hidden rounded-lg">
         <VisualPanel
           label={tourPackage.imageAlt}
           tone={tourPackage.tone}

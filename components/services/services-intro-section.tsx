@@ -58,7 +58,7 @@ export function ServicesIntroSection() {
                 className="absolute -inset-3 rounded-[2rem] bg-linear-to-br from-primary/10 via-transparent to-secondary/10"
                 aria-hidden="true"
               />
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-border/80 shadow-lg">
+              <div className="relative overflow-hidden rounded-lg border border-border/80 shadow-lg">
                 <div
                   className="aspect-[4/3] bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.03] motion-reduce:transform-none"
                   style={{

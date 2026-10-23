@@ -24,13 +24,17 @@ export function DestinationCard({
         className,
       )}
     >
-      <img
-        src={destination.imageSrc}
-        alt={destination.imageAlt}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-105"
-        loading="lazy"
-        decoding="async"
-      />
+      {destination.imageSrc ? (
+        <img
+          src={destination.imageSrc}
+          alt={destination.imageAlt}
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-primary" aria-hidden="true" />
+      )}
 
       <div className="relative mt-auto w-full bg-primary/40">
         <div className="flex items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5">

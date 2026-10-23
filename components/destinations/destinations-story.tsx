@@ -41,7 +41,7 @@ export function DestinationsStory() {
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
           <Reveal className="lg:col-span-6">
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-border/80 shadow-lg">
+            <div className="relative overflow-hidden rounded-lg border border-border/80 shadow-lg">
               <div
                 ref={imageRef}
                 className="aspect-[4/5] bg-cover bg-center transition-transform duration-100 ease-out will-change-transform motion-reduce:transform-none sm:aspect-[5/6]"

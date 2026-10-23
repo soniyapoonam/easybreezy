@@ -14,7 +14,7 @@ export function WhyChooseSection() {
               heading={homeWhyChoose.heading}
               description={homeWhyChoose.description}
             />
-            <div className="mt-8 hidden min-h-64 overflow-hidden rounded-[1.75rem] lg:block">
+            <div className="mt-8 hidden min-h-64 overflow-hidden rounded-lg lg:block">
               <VisualPanel
                 label={homeWhyChoose.visualAlt}
                 tone={homeWhyChoose.tone}
