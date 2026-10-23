@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { cn } from "@/components/ui/cn";
 import { siteConfig } from "@/lib/site";
@@ -16,9 +17,15 @@ import {
 const topBarIconContainerClass =
   "inline-flex size-7 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-on-primary transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:border-accent hover:bg-accent hover:text-on-accent sm:size-8";
 
+function navItemIsActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!open) return;
@@ -95,15 +102,22 @@ export function Header() {
             className="hidden items-center justify-start gap-2 px-3 lg:flex xl:px-6"
             aria-label="Main navigation"
           >
-            {siteConfig.mainNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-md px-2 py-2 font-heading text-sm font-semibold text-text no-underline transition-colors hover:bg-sky hover:text-secondary"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {siteConfig.mainNav.map((item) => {
+              const isActive = navItemIsActive(pathname, item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={cn(
+                    "rounded-md px-2 py-2 font-heading text-sm font-semibold no-underline transition-colors hover:bg-sky hover:text-secondary",
+                    isActive ? "bg-sky text-secondary" : "text-text",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
           <a
             href={siteConfig.contact.phoneHref}
@@ -152,16 +166,23 @@ export function Header() {
       >
         <div className="flex flex-col gap-1 border-t border-border/70 px-4 py-4">
           <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
-            {siteConfig.mainNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-md px-3 py-3 font-heading text-base font-semibold text-text no-underline transition-colors hover:bg-sky hover:text-secondary"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {siteConfig.mainNav.map((item) => {
+              const isActive = navItemIsActive(pathname, item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={cn(
+                    "rounded-md px-3 py-3 font-heading text-base font-semibold no-underline transition-colors hover:bg-sky hover:text-secondary",
+                    isActive ? "bg-sky text-secondary" : "text-text",
+                  )}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
           <a
             href={siteConfig.contact.phoneHref}

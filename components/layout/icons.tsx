@@ -136,6 +136,59 @@ export function IconSupport(props: IconProps) {
   );
 }
 
+export function IconSearch(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <circle cx="11" cy="11" r="6.25" />
+      <path d="m16 16 4 4" />
+    </svg>
+  );
+}
+
+export function IconClock(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <circle cx="12" cy="12" r="8" />
+      <path d="M12 8.5v4l2.5 1.5" />
+    </svg>
+  );
+}
+
+export function IconLinkCopy(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <rect x="8.5" y="8.5" width="11" height="11" rx="2" />
+      <path d="M15.5 8.5V6.8A2.3 2.3 0 0 0 13.2 4.5H6.8A2.3 2.3 0 0 0 4.5 6.8v6.4A2.3 2.3 0 0 0 6.8 15.5H8.5" />
+    </svg>
+  );
+}
+
+export function IconWhatsApp(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <path d="M12 4.6A7.4 7.4 0 0 0 5.7 16.2L5 19l2.9-.7A7.4 7.4 0 1 0 12 4.6z" />
+      <path d="M9.4 9.3c.2-.4.3-.4.6-.4h.4c.2 0 .3.1.4.3l.5 1.2c.1.2 0 .3-.1.5l-.3.4c-.1.1-.1.3 0 .4.3.5.8 1 1.3 1.3.2.1.3.1.4 0l.4-.3c.2-.1.4-.1.5 0l1.2.6c.2.1.3.2.3.4v.4c0 .2 0 .4-.4.6A3.4 3.4 0 0 1 12 15a4.6 4.6 0 0 1-2.6-7.7z" />
+    </svg>
+  );
+}
+
+export function IconLinkedIn(props: IconProps) {
+  return (
+    <svg {...baseProps({ ...props, fill: "currentColor", stroke: "none" })}>
+      <path d="M6.7 9.2H4.2V19h2.5V9.2zM5.45 4.5A1.55 1.55 0 1 0 5.46 7.6 1.55 1.55 0 0 0 5.45 4.5zM19.8 19h-2.5v-5.2c0-1.6-.6-2.2-1.5-2.2-.9 0-1.5.7-1.5 2.2V19h-2.5V9.2h2.5v1.2c.5-.8 1.4-1.4 2.6-1.4 1.9 0 2.9 1.2 2.9 3.6V19z" />
+    </svg>
+  );
+}
+
+export function IconPaperPlane(props: IconProps) {
+  return (
+    <svg {...baseProps(props)}>
+      <path d="M4.5 11.5 20 4.5 13 19.5l-2.2-6.2L4.5 11.5z" />
+      <path d="m10.8 13.3 9.2-8.8" />
+    </svg>
+  );
+}
+
 export function IconCalendarCheck(props: IconProps) {
   return (
     <svg {...baseProps(props)}>

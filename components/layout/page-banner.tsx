@@ -21,7 +21,13 @@ const INNER_PAGE_HERO_ROUTES = new Set([
 ]);
 
 function pageLabelFromPath(pathname: string): string | null {
-  if (pathname === "/" || INNER_PAGE_HERO_ROUTES.has(pathname)) return null;
+  if (
+    pathname === "/" ||
+    INNER_PAGE_HERO_ROUTES.has(pathname) ||
+    pathname.startsWith("/blog/")
+  ) {
+    return null;
+  }
 
   const navMatch = [...siteConfig.mainNav]
     .filter((item) => item.href !== "/")

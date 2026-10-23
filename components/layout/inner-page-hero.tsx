@@ -5,9 +5,13 @@ import "./inner-page-hero.css";
 export type InnerPageHeroProps = {
   headingId: string;
   breadcrumbLabel: string;
-  eyebrow: string;
+  parentBreadcrumb?: {
+    label: string;
+    href: string;
+  };
+  eyebrow?: string;
   heading: string;
-  body: string;
+  body?: string;
   scrollCue?: string;
   imageSrc: string;
   imageAlt: string;
@@ -16,6 +20,7 @@ export type InnerPageHeroProps = {
 export function InnerPageHero({
   headingId,
   breadcrumbLabel,
+  parentBreadcrumb,
   eyebrow,
   heading,
   body,
@@ -77,24 +82,41 @@ export function InnerPageHero({
                 Home
               </Link>
             </li>
+            {parentBreadcrumb ? (
+              <>
+                <li aria-hidden="true">/</li>
+                <li>
+                  <Link
+                    href={parentBreadcrumb.href}
+                    className="text-on-dark/80 no-underline hover:text-highlight"
+                  >
+                    {parentBreadcrumb.label}
+                  </Link>
+                </li>
+              </>
+            ) : null}
             <li aria-hidden="true">/</li>
             <li className="text-on-dark" aria-current="page">
               {breadcrumbLabel}
             </li>
           </ol>
         </nav>
-        <p className="ipage-hero-reveal ipage-hero-reveal-delay-1 mt-6 font-heading text-small font-semibold tracking-[0.18em] text-highlight uppercase">
-          {eyebrow}
-        </p>
+        {eyebrow ? (
+          <p className="ipage-hero-reveal ipage-hero-reveal-delay-1 mt-6 font-heading text-small font-semibold tracking-[0.18em] text-highlight uppercase">
+            {eyebrow}
+          </p>
+        ) : null}
         <h1
           id={headingId}
           className="ipage-hero-reveal ipage-hero-reveal-delay-2 mt-3 max-w-3xl text-balance text-on-dark"
         >
           {heading}
         </h1>
-        <p className="ipage-hero-reveal ipage-hero-reveal-delay-3 mt-5 max-w-xl text-base leading-relaxed text-on-dark/85 sm:text-lg">
-          {body}
-        </p>
+        {body ? (
+          <p className="ipage-hero-reveal ipage-hero-reveal-delay-3 mt-5 max-w-xl text-base leading-relaxed text-on-dark/85 sm:text-lg">
+            {body}
+          </p>
+        ) : null}
         {scrollCue ? (
           <p
             className="ipage-hero-scroll-cue mt-10 hidden font-heading text-xs tracking-[0.16em] text-on-dark/70 uppercase md:block"
