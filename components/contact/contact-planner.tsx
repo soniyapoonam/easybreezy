@@ -6,16 +6,14 @@ import { contactPlanner } from "@/lib/content/contact";
 import { useContactInView } from "./use-contact-in-view";
 
 const inputClass =
-  "peer h-14 w-full border-0 border-b border-border bg-transparent px-0 pt-4 text-sm text-text outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-transparent focus:border-secondary";
+  "peer h-20 w-full border-0 border-b border-border bg-transparent px-0 pt-8 text-text outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-transparent focus:border-secondary";
 
 const textareaClass =
-  "peer min-h-28 w-full resize-y border-0 border-b border-border bg-transparent px-0 pt-5 text-sm text-text outline-none transition-[border-color] duration-200 placeholder:text-transparent focus:border-secondary";
+  "peer min-h-36 w-full resize-y border-0 border-b border-border bg-transparent px-0 pt-8 text-text outline-none transition-[border-color] duration-200 placeholder:text-transparent focus:border-secondary";
 
-const floatLabelClass =
-  "pointer-events-none absolute left-0 top-3 text-small text-muted transition-all duration-200 peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-focus:top-1 peer-focus:text-[0.7rem] peer-focus:tracking-[0.08em] peer-focus:text-secondary peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[0.7rem]";
+const floatLabelClass = "pointer-events-none absolute left-0 top-0 text-text";
 
-const raisedLabelClass =
-  "pointer-events-none absolute left-0 top-1 text-[0.7rem] tracking-[0.08em] text-muted";
+const raisedLabelClass = "pointer-events-none absolute left-0 top-0 text-text";
 
 export function ContactPlanner() {
   const formId = useId();

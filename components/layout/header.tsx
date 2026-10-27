@@ -91,7 +91,7 @@ export function Header() {
             <span className="absolute inset-x-2 bottom-2 h-1.5 rounded-full bg-accent" />
           </span>
           <span className="relative min-w-0 whitespace-nowrap">
-            <span className="block font-heading text-[0.72rem] font-extrabold tracking-[0.02em] text-primary transition-colors group-hover:text-secondary sm:text-sm lg:text-base">
+            <span className="site-wordmark block tracking-[0.02em] text-primary transition-colors group-hover:text-secondary">
               EASY TRAVELS
             </span>
           </span>

@@ -51,7 +51,7 @@ export function TourPackageListingCard({
       </div>
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 className="font-heading text-[1.35rem] font-semibold leading-snug text-[#1A1A1A]">
+        <h3 className="font-heading text-[1.35rem] font-semibold leading-snug text-[#000]">
           {tourPackage.title}
         </h3>
 

@@ -2,61 +2,52 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui";
 import { siteConfig, type SocialPlatform } from "@/lib/site";
-import { IconMail, IconPhone, SocialIcon } from "./icons";
-
-const FOOTER_BG = "#102A43";
-
-const FOOTER_BORDER = "rgba(241,231,216,0.12)";
-const FOOTER_TEXT = "rgba(241,231,216,0.72)";
-const FOOTER_TEXT_MUTED = "rgba(241,231,216,0.52)";
+import { IconMail, IconMapPin, IconPhone, SocialIcon } from "./icons";
+import "./footer.css";
 
 const exploreLinks = [
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Tour Packages", href: "/tour-packages" },
   { label: "Destinations", href: "/destinations" },
-  { label: "Blog", href: "/blog" },
+  // { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
-const footerSocial: { id: SocialPlatform; label: string }[] = [
-  { id: "facebook", label: "Facebook" },
-  { id: "instagram", label: "Instagram" },
-  { id: "threads", label: "Threads" },
-  { id: "google", label: "Google" },
-];
+const footerSocialIds = ["facebook", "instagram", "threads", "google"] as const;
 
-const paymentMethods = [
-  { id: "visa", label: "Visa" },
-  { id: "mastercard", label: "Mastercard" },
-  { id: "rupay", label: "RuPay" },
-  { id: "upi", label: "UPI" },
-  { id: "netbanking", label: "Net Banking" },
+const footerSocial: { id: SocialPlatform; label: string; href: string | null }[] =
+  footerSocialIds.map((id) => {
+    const match = siteConfig.social.find((item) => item.id === id);
+    return {
+      id,
+      label: match?.label ?? id,
+      href: match?.href ?? null,
+    };
+  });
+
+const bottomLinks = [
+  ...siteConfig.legalLinks,
+  { label: "Booking", href: siteConfig.bookingHref },
 ] as const;
 
-function FooterHeading({ children }: { children: ReactNode }) {
+function EmailText({ email }: { email: string }) {
+  const at = email.indexOf("@");
+  if (at <= 0) return email;
+
   return (
-    <div className="w-full">
-      <h3
-        className="font-heading text-[1.0625rem] font-semibold tracking-normal text-white"
-      >
-        {children}
-      </h3>
-      <span
-        className="mt-3 block h-px w-full"
-        style={{ backgroundColor: FOOTER_BORDER }}
-        aria-hidden="true"
-      />
-    </div>
+    <>
+      {email.slice(0, at + 1)}
+      <wbr />
+      {email.slice(at + 1)}
+    </>
   );
 }
 
 function NewsletterForm() {
   return (
-    <div className="mt-5 w-full">
-      <form
-        className="flex w-full min-w-0 flex-col gap-0 sm:flex-row sm:items-stretch"
-      >
+    <div>
+      <form className="site-footer__field">
         <label htmlFor="footer-newsletter-email" className="sr-only">
           Email address
         </label>
@@ -66,96 +57,64 @@ function NewsletterForm() {
           name="email"
           placeholder="Your email"
           autoComplete="email"
-          className="min-w-0 flex-1 rounded-md border border-[rgba(241,231,216,0.12)] bg-[rgba(0,0,0,0.22)] px-4 py-3 text-sm text-[rgba(241,231,216,0.88)] outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-[rgba(241,231,216,0.38)] focus:border-white/45 focus:shadow-[0_0_0_1px_rgba(255,255,255,0.2)] max-sm:rounded-b-none sm:rounded-r-none"
         />
-        <button
-          type="button"
-          className="shrink-0 rounded-md bg-accent px-6 py-3 font-heading text-sm font-semibold text-on-accent transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:brightness-110 motion-reduce:transform-none max-sm:rounded-t-none sm:rounded-l-none sm:px-7"
-        >
-          Join
-        </button>
+        <button type="button">Join</button>
       </form>
-      <p
-        className="mt-3 text-xs leading-relaxed"
-        style={{ color: FOOTER_TEXT_MUTED }}
-      >
-        No spam — just thoughtful travel updates.
-      </p>
+      <small>No spam — just thoughtful travel updates.</small>
     </div>
-  );
-}
-
-function FooterNavLink({ href, children }: { href: string; children: ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="group inline-flex items-center text-[0.9375rem] leading-relaxed no-underline transition-[color,transform] duration-300 hover:translate-x-0.5 motion-reduce:transform-none"
-      style={{ color: FOOTER_TEXT }}
-    >
-      <span
-        className="transition-colors duration-300 group-hover:text-white"
-      >
-        {children}
-      </span>
-    </Link>
   );
 }
 
 function SocialButton({
   platform,
   label,
+  href,
 }: {
   platform: SocialPlatform;
   label: string;
+  href: string | null;
 }) {
+  const icon = <SocialIcon platform={platform} className="site-footer__social-icon" />;
+
+  if (!href) {
+    return (
+      <span className="site-footer__social-link" role="img" aria-label={label} title={label}>
+        {icon}
+      </span>
+    );
+  }
+
+  const external = href.startsWith("http");
+
   return (
     <a
-      href="#"
+      href={href}
+      className="site-footer__social-link"
       aria-label={label}
       title={label}
-      className="inline-flex size-9 items-center justify-center rounded-full border border-[rgba(241,231,216,0.12)] bg-[rgba(241,231,216,0.12)] text-[rgba(241,231,216,0.88)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-105 hover:border-white/55 hover:bg-white/14 hover:text-white motion-reduce:transform-none"
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
-      <SocialIcon platform={platform} className="size-[1.05rem]" />
+      {icon}
     </a>
   );
 }
 
 function BrandLogo() {
   return (
-    <Link href="/" className="group inline-flex items-start gap-4 no-underline">
+    <Link href="/" className="site-footer__brand group">
       <span
-        className="inline-flex size-[3.75rem] shrink-0 items-center justify-center rounded-sm border transition-colors duration-300 sm:size-16"
-        style={{
-          borderColor: "rgba(184, 147, 90, 0.38)",
-          backgroundColor: "rgba(241, 231, 216, 0.04)",
-        }}
+        className="inline-flex size-[3.75rem] shrink-0 items-center justify-center rounded-sm border border-[rgba(184,147,90,0.38)] bg-[rgba(241,231,216,0.04)] sm:size-16"
         aria-hidden="true"
       >
         <span className="relative inline-flex size-10 items-center justify-center sm:size-11">
-          <span
-            className="absolute inset-x-0 top-2 h-3 -skew-x-20 rounded-full border-t-[3px] border-white transition-colors duration-300"
-          />
-          <span
-            className="absolute inset-x-1 top-5 h-3 -skew-x-20 rounded-full border-t-[3px] transition-colors duration-300"
-            style={{ borderColor: "rgba(241, 231, 216, 0.55)" }}
-          />
-          <span
-            className="absolute inset-x-2 bottom-2 h-1.5 rounded-full bg-accent transition-transform duration-300 group-hover:scale-110"
-          />
+          <span className="absolute inset-x-0 top-2 h-3 -skew-x-20 rounded-full border-t-[3px] border-white" />
+          <span className="absolute inset-x-1 top-5 h-3 -skew-x-20 rounded-full border-t-[3px] border-[rgba(241,231,216,0.55)]" />
+          <span className="absolute inset-x-2 bottom-2 h-1.5 rounded-full bg-accent transition-transform duration-300 group-hover:scale-110" />
         </span>
       </span>
-      <span className="min-w-0 pt-0.5">
-        <span
-          className="block font-heading text-base font-bold tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-white sm:text-lg"
-        >
-          {siteConfig.name}
-        </span>
-        <span
-          className="mt-1 block font-heading text-[0.65rem] font-semibold tracking-[0.2em] uppercase sm:text-[0.7rem]"
-          style={{ color: FOOTER_TEXT_MUTED }}
-        >
-          {siteConfig.headerEyebrow}
-        </span>
+      <span>
+        <b className="site-footer__name">{siteConfig.name}</b>
+        <small>{siteConfig.headerEyebrow}</small>
       </span>
     </Link>
   );
@@ -280,11 +239,7 @@ const paymentIconMap: Record<string, ReactNode> = {
 
 function PaymentBadge({ id, label }: { id: string; label: string }) {
   return (
-    <span
-      title={label}
-      className="inline-flex overflow-hidden rounded-md border shadow-[0_4px_14px_rgba(0,0,0,0.22)] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.28)] motion-reduce:transform-none"
-      style={{ borderColor: "rgba(255,255,255,0.14)" }}
-    >
+    <span title={label} className="site-footer__pay-badge">
       {paymentIconMap[id]}
       <span className="sr-only">{label}</span>
     </span>
@@ -293,177 +248,140 @@ function PaymentBadge({ id, label }: { id: string; label: string }) {
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const { ctaStrip } = siteConfig.footer;
+  const tourPackages = siteConfig.mainNav.find((item) => item.href === "/tour-packages");
 
   return (
-    <footer
-      className="relative mt-auto overflow-hidden text-[rgba(241,231,216,0.88)]"
-      style={{ background: FOOTER_BG }}
-    >
-      <Container className="relative px-4 py-16 sm:px-8 md:py-20 lg:py-[5.5rem]">
-        <div
-          className="grid gap-12 md:grid-cols-2 md:gap-x-10 md:gap-y-14 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.8fr)_minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-x-12 xl:gap-x-14"
-        >
-          {/* Brand */}
-          <div className="md:col-span-2 lg:col-span-1">
-            <BrandLogo />
-            <p
-              className="mt-7 max-w-md text-[0.9375rem] leading-[1.75]"
-              style={{ color: FOOTER_TEXT }}
+    <footer className="site-footer">
+      <div className="site-footer__panel">
+        <Container className="site-footer__cta">
+          <div>
+            <h2>{ctaStrip.heading}</h2>
+            <p>{ctaStrip.description}</p>
+          </div>
+          <div className="site-footer__actions">
+            <Link href={siteConfig.bookingHref} className="site-footer__btn site-footer__btn--main">
+              {ctaStrip.ctaLabel}
+            </Link>
+            <Link
+              href={tourPackages?.href ?? "/tour-packages"}
+              className="site-footer__btn site-footer__btn--ghost"
             >
-              Comfortable journeys, trusted drivers, and thoughtfully planned
-              travel for every route ahead—where{" "}
-              <strong
-                className="font-semibold"
-                style={{ color: "rgba(241,231,216,0.95)" }}
-              >
-                every route feels considered
-              </strong>
-              , not rushed.
+              {tourPackages?.label ?? "Tour Packages"}
+            </Link>
+          </div>
+        </Container>
+
+        <Container className="site-footer__road" aria-hidden="true">
+          <svg viewBox="0 0 1100 28" preserveAspectRatio="none">
+            <path
+              d="M0 14h1100"
+              stroke="#9fb6cf"
+              strokeOpacity="0.45"
+              strokeWidth="1"
+              strokeDasharray="2 6"
+              strokeLinecap="round"
+              fill="none"
+            />
+          </svg>
+          <span className="site-footer__cab" />
+        </Container>
+
+        <Container className="site-footer__grid">
+          <div>
+            <BrandLogo />
+            <p className="site-footer__about">
+              Comfortable journeys, trusted drivers, and thoughtfully planned travel for every
+              route ahead—where <strong>every route feels considered</strong>, not rushed.
             </p>
-            <div className="mt-7 flex flex-wrap gap-2.5">
+            <div className="site-footer__social">
               {footerSocial.map((item) => (
                 <SocialButton
-                  key={`brand-${item.id}`}
+                  key={item.id}
                   platform={item.id}
                   label={item.label}
+                  href={item.href}
                 />
               ))}
             </div>
           </div>
 
-          {/* Explore */}
-          <div>
-            <FooterHeading>Explore</FooterHeading>
-            <ul className="mt-5 flex flex-col gap-3.5">
+          <nav aria-label="Explore">
+            <h3>Explore</h3>
+            <ul className="site-footer__links">
               {exploreLinks.map((item) => (
                 <li key={item.href}>
-                  <FooterNavLink href={item.href}>{item.label}</FooterNavLink>
+                  <Link href={item.href}>{item.label}</Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Branch */}
           <div>
-            <FooterHeading>Branch</FooterHeading>
-            <div className="mt-5 space-y-4 text-[0.9375rem] leading-relaxed">
-              <p style={{ color: FOOTER_TEXT }}>
-                {siteConfig.contact.addressLines.map((line) => (
-                  <span key={line} className="block">{line}</span>
-                ))}
-              </p>
-              <a
-                href={siteConfig.contact.phoneHref}
-                className="inline-flex items-center gap-2.5 no-underline transition-colors duration-300 hover:text-white"
-                style={{ color: FOOTER_TEXT }}
-              >
-                <IconPhone className="size-4 shrink-0 text-white" />
-                <span className="border-b border-transparent transition-[border-color,color] duration-300 hover:border-white">
-                  {siteConfig.contact.phone}
+            <h3>Branch</h3>
+            <div className="site-footer__contact">
+              <div className="site-footer__contact-row">
+                <IconMapPin />
+                <span>
+                  {siteConfig.contact.addressLines.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
                 </span>
-              </a>
-              <a
-                href={siteConfig.contact.emailHref}
-                className="block break-all no-underline transition-colors duration-300 hover:text-white"
-                style={{ color: FOOTER_TEXT }}
-              >
-                <span className="inline-flex items-center gap-2.5">
-                  <IconMail className="size-4 shrink-0 text-white" />
-                  {siteConfig.contact.email}
-                </span>
-              </a>
+              </div>
+              <div className="site-footer__contact-row">
+                <IconPhone />
+                <a href={siteConfig.contact.phoneHref}>{siteConfig.contact.phone}</a>
+              </div>
+              <div className="site-footer__contact-row">
+                <IconMail />
+                <a href={siteConfig.contact.emailHref}>
+                  <EmailText email={siteConfig.contact.email} />
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Stay in Touch */}
-          <div className="md:col-span-2 lg:col-span-1">
-            <FooterHeading>Stay in Touch</FooterHeading>
-            <p
-              className="mt-5 text-[0.9375rem] leading-relaxed"
-              style={{ color: FOOTER_TEXT }}
-            >
-              First word on new routes, seasonal packages, and travel notes from
-              our hill-road desk.
+          <div className="site-footer__news">
+            <h3>Stay in Touch</h3>
+            <p>
+              First word on new routes, seasonal packages, and travel notes from our hill-road
+              desk.
             </p>
             <NewsletterForm />
           </div>
-        </div>
-      </Container>
+        </Container>
 
-      {/* Payment */}
-      <div
-        className="border-t"
-        style={{ borderColor: FOOTER_BORDER }}
-      >
-        <Container className="px-4 py-9 sm:px-8 md:py-10">
-          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p
-                className="font-heading text-[0.8125rem] font-semibold tracking-[0.16em] text-white uppercase"
-              >
-                Secure Payment
-              </p>
-              <p
-                className="mt-2 max-w-md text-sm leading-relaxed"
-                style={{ color: FOOTER_TEXT_MUTED }}
-              >
-                Accepted methods for online booking — processed securely when you
-                confirm your journey.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-2.5 md:justify-end">
-              {paymentMethods.map((method) => (
+        {/* <div className="site-footer__pay">
+          <Container className="site-footer__pay-inner">
+            <p>
+              <strong>Secure Payment</strong>
+              Accepted methods for online booking — processed securely when you confirm your
+              journey.
+            </p>
+            <div className="site-footer__chips">
+              {siteConfig.paymentMethods.map((method) => (
                 <PaymentBadge key={method.id} id={method.id} label={method.label} />
               ))}
             </div>
-          </div>
-        </Container>
-      </div>
+          </Container>
+        </div> */}
 
-      {/* Bottom bar */}
-      <div
-        className="border-t"
-        style={{ borderColor: FOOTER_BORDER, backgroundColor: "rgba(0,0,0,0.18)" }}
-      >
-        <Container className="px-4 py-5 sm:px-8 md:py-6">
-          <div
-            className="flex w-full min-w-0 flex-col gap-4 text-sm sm:flex-row sm:items-center sm:justify-between"
-            style={{ color: FOOTER_TEXT_MUTED }}
-          >
-            <p className="min-w-0">
+        <div className="site-footer__bottom">
+          <Container className="site-footer__bottom-inner">
+            <p>
               © {year} {siteConfig.name}. All rights reserved.
             </p>
-            <ul className="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-2">
-              <li>
-                <Link
-                  href="/privacy"
-                  className="no-underline transition-colors duration-300 hover:text-white"
-                  style={{ color: FOOTER_TEXT_MUTED }}
-                >
-                  Privacy Policy
+            <nav aria-label="Legal">
+              {bottomLinks.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  {item.label}
                 </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms"
-                  className="no-underline transition-colors duration-300 hover:text-white"
-                  style={{ color: FOOTER_TEXT_MUTED }}
-                >
-                  Terms &amp; Conditions
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={siteConfig.bookingHref}
-                  className="no-underline transition-colors duration-300 hover:text-white"
-                  style={{ color: FOOTER_TEXT_MUTED }}
-                >
-                  Booking
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </Container>
+              ))}
+            </nav>
+          </Container>
+        </div>
       </div>
     </footer>
   );

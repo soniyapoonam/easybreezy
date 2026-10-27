@@ -36,7 +36,7 @@ export function TourPackagesMain({
           <Reveal className="mx-auto max-w-3xl text-center">
             <h2
               id="tour-packages-featured-heading"
-              className="font-heading text-3xl font-semibold text-[#1A1A1A] sm:text-4xl"
+              className="font-heading text-3xl font-semibold text-[#000] sm:text-4xl"
             >
               {featured.heading}
             </h2>
@@ -92,7 +92,7 @@ export function TourPackagesMain({
                   </p>
                   <h2
                     id="tour-packages-plan-heading"
-                    className="mt-3 font-heading text-2xl font-semibold text-[#1A1A1A] sm:text-3xl"
+                    className="mt-3 font-heading text-2xl font-semibold text-[#000] sm:text-3xl"
                   >
                     {planCta.heading}
                   </h2>
@@ -119,7 +119,7 @@ export function TourPackagesMain({
                         >
                           <Icon className="size-5" />
                         </span>
-                        <p className="pt-2 font-heading text-sm font-semibold text-[#1A1A1A]">
+                        <p className="pt-2 font-heading text-sm font-semibold text-[#000]">
                           {item.title}
                         </p>
                       </div>

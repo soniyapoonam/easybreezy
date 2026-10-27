@@ -14,8 +14,8 @@
   --color-sky: #eef6ff;
   --color-background: #f3f3f3;
   --color-dark: #102d50;
-  --color-text: #3f4e63;
-  --color-muted: #718096;
+  --color-text: #000000;
+  --color-muted: #000000;
   --color-surface: #ffffff;
   --color-border: #d9e2ec;
 
@@ -29,12 +29,12 @@
   --text-h2: clamp(1.75rem, 1.45rem + 1.5vw, 2.5rem); /* 28 → 40px */
   --text-h3: 1.25rem; /* 20px — fixed across breakpoints */
   --text-h4: clamp(1.125rem, 1.05rem + 0.375vw, 1.375rem); /* 18 → 22px */
-  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); /* 16 → 18px */
-  --text-small: 0.875rem; /* 14px */
+  --text-body: 16px;
+  --text-small: 16px;
 
   --leading-tight: 1.2;
   --leading-snug: 1.35;
-  --leading-normal: 1.6;
+  --leading-normal: 24px;
   --tracking-heading: -0.02em;
 
   /* Spacing scale */
@@ -169,10 +169,11 @@
 
   body {
     background-color: var(--color-background);
-    color: var(--color-text);
+    color: #000;
     font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--text-body);
-    line-height: var(--leading-normal);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
   }
 
   h1,
@@ -198,7 +199,7 @@
   }
 
   h3 {
-    font-size: 1.25rem !important;
+    font-size: 1.25rem;
     line-height: var(--leading-snug);
   }
 
@@ -213,7 +214,7 @@
   }
 
   a {
-    color: var(--color-secondary);
+    color: #000;
     transition: var(--transition-colors);
   }
 
@@ -253,10 +254,10 @@
     min-height: 2.75rem;
     padding: 0.625rem 1.25rem;
     border-radius: 9999px;
-    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.9375rem;
+    font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
     font-weight: 600;
-    line-height: 1.25;
+    line-height: 24px;
     text-decoration: none;
     border: 1px solid transparent;
     cursor: pointer;
@@ -383,4 +384,76 @@
     box-shadow: var(--shadow-hover);
     transform: translateY(-2px);
   }
+}
+
+/* Typography lock — sits outside Tailwind layers so utility sizes cannot drift.
+   Body copy: Roboto, 16px, 24px line-height, weight 400, #000.
+   Headings: Inter. Buttons stay weight 600. Light text on dark surfaces is unchanged. */
+body {
+  color: #000;
+  font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body *:not(svg, svg *) {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+body :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-heading);
+}
+
+body h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+}
+
+body h2 {
+  font-size: var(--text-h2);
+}
+
+body h3 {
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+body h4 {
+  font-size: var(--text-h4);
+  line-height: 1.35;
+}
+
+body :is(h5, h6) {
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+body :is(strong, b) {
+  font-weight: 600;
+}
+
+body :is(button, .btn, .site-footer__btn, .header-booking-link) {
+  font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+body :is(.site-wordmark, .site-footer__name) {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+::placeholder {
+  color: #718096;
 }
